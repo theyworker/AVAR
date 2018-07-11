@@ -4,9 +4,9 @@
  <title>Automated Value Added Recruiting</title>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" type="text/css" href="css/styles.css"/>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
 </head>
 <body>
   <nav class="navbar">
@@ -22,32 +22,192 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-
     </div>
-
   </nav>
 
-  <div class="container" >
+  
+    
+  
 
-      <form >
-      <div class="col-md-4 col-md-offset-4 p-3 mb-2 bg-info text-white" style="margin-top:10%">
-        <div>
-          <br/>
-          <label for="name">Username</label>
-          <input type="text" class="form-control">
-        </div>
-        <div >
-          <label for="name">Password</label>
-          <input type="text" class="form-control">
-        </div>
+    <div class="container" align="center" style="background-color:#282923;height: 350px;border-radius: 10px;">
+      <div class="featurette">
+        <div class="featurette-inner text-center">
+          <form role="form" class="search has-button" style="padding-bottom: 0;">
 
-        <div>
-          <br/>
-          <button type="button" name="send" class="btn btn-primary center-block">Login</button>
-          <br/>
+            <div class="form-group">
+                <input type="search" placeholder="search" class="form-control form-control-lg">
+                <button class="btn btn-lg btn-success" type="button">Search</button>
+            </div>
+          <!-- /form-group -->
+          </form>
+        <!-- /.max-width on this form -->    
         </div>
+      <!-- /.featurette-inner (display:table-cell) -->   
       </div>
-    </form>
+
+      <div class="container">
+        <div class="wrapper" style="padding-right: 30px;">
+          <div class="btn-group dropdown">
+          <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">Advance Search
+          <span class="caret"></span>
+          </button>
+          
+          <ul class="dropdown-menu" style="width: 340px;height: 300px;border-radius: 8px; background-color: #D7D6DC">
+            <form style="padding-left: 20px;">
+            <li class="dropdown-header">Find Who Applied</li>
+            <li>Experience</li>
+            <li>Experience</li>
+            <li>Experience</li>
+              <div class="pull-right" style="padding-right: 23px; padding-top: 10px;">
+                <input class="btn btn-success" type="button" name="Search" value="Search">
+              </div>
+          </form>
+          </ul>
+        </div>
+        </div>
+        
+      </div>
+
+      <div class="container">
+        <div class="wrapper" style="margin-right: 125px;margin-top: 100px;">
+          <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-lg btn-success pull-right" type="button" name="createpost" value="Create Post" >
+
+           
+              <div class="container">
+                          <div id="modal-wrapper" class="modal">
+                
+                 <form class="modal-content animate" action="">
+                  <h1 style="margin-bottom: 20px;">Create Post</h1>
+              <div class="imgcontainer">
+                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
+              </div>
+                  <div class="form-group">
+                  <label for="sel1">Select Industry:</label>
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="sel1">Select Job:</label>
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="sel1">Select Level:</label>
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="comment">Discription:</label>
+                  <textarea class="form-control" rows="5"></textarea>
+                </div>
+                <label for="sel1">Add Question:</label>
+
+                <div class="pull-right" style="padding-right: 23px; padding-top: 10px;">
+                <input class="btn btn-success" type="button" name="submit" value="Submit">
+              </div>
+              </form>
+              </div>
+           
+          </div>
+        </div> 
+    </div>
   </div>
+
+  <div class="container">
+    <h1>Statistics</h1>
+    <div class="row">
+      <br>
+          <div class="col-lg-3 col-xs-6">
+            <div class="rad-info-box rad-txt-success">
+              <i class="fa fa-windows"></i>
+              <span class="heading">CVs</span>
+              <span class="value"><span>4949</span></span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">
+            <div class="rad-info-box rad-txt-primary">
+              <i class="fa fa-facebook"></i>
+              <span class="heading">Job Posts</span>
+              <span class="value"><span>23K</span></span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">
+            <div class="rad-info-box rad-txt-danger">
+              <i class="fa fa-google-plus"></i>
+              <span class="heading">This Month Application</span>
+              <span class="value"><span>49M</span></span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">
+            <div class="rad-info-box">
+              <i class="fa fa-apple"></i>
+              <span class="heading">etc...</span>
+              <span class="value"><span>10.9K</span></span>
+            </div>
+          </div>
+          </div>
+          <br><br>
+          <div class="row">
+          <div class="col-lg-3 col-xs-6">
+            <div class="rad-info-box rad-txt-success">
+              <i class="fa fa-windows"></i>
+              <span class="heading">CVs</span>
+              <span class="value"><span>4949</span></span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">
+            <div class="rad-info-box rad-txt-primary">
+              <i class="fa fa-facebook"></i>
+              <span class="heading">Job Posts</span>
+              <span class="value"><span>23K</span></span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">
+            <div class="rad-info-box rad-txt-danger">
+              <i class="fa fa-windows"></i>
+              <span class="heading">CVs</span>
+              <span class="value"><span>4949</span></span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-xs-6">
+            <div class="rad-info-box">
+              <i class="fa fa-facebook"></i>
+              <span class="heading">Job Posts</span>
+              <span class="value"><span>23K</span></span>
+            </div>
+          </div>
+        </div>
+</div>
+
+
+  
+ 
+  <script type="text/javascript">
+      var modal = document.getElementById('modal-wrapper');
+      window.onclick = function(event)
+      {
+        if (event.target == modal)
+        {
+          modal.style.display = "none";
+        }
+  }
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 </body>
 </html>

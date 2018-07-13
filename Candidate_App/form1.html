@@ -32,26 +32,26 @@
     <div class="page-header">
       <h1>Application for ~position~ </h1>
     </div>
-    <form class="col-md-6">
+    <form class="col-md-6" action="/submit" method="POST">
       <div id="biodata">
         <div >
           <h2>Bio Data</h2>
         </div>
       <div class="form-group">
     <label for="fname">Full Name:</label>
-    <input type="text" class="form-control" id="fname">
+    <input type="text" class="form-control" name="fname" id="fname">
   </div>
   <div class="form-group">
     <label for="email">Email:</label>
-    <input type="email" class="form-control" id="email">
+    <input type="email" class="form-control" name="email" id="email">
   </div>
   <div class="form-group">
     <label for="tel">Telephone Number:</label>
-    <input type="tel" class="form-control" id="tel">
+    <input type="tel" class="form-control" name="tel" id="tel">
   </div>
   <div class="form-group">
     <label for="address">Address:</label>
-    <textarea type="text" class="form-control" id="address"></textarea>
+    <textarea type="text" class="form-control" name="address" id="address"></textarea>
   </div>
 </div>
 <div >
@@ -59,23 +59,23 @@
 </div>
 <div class="form-group">
   <label for="curemp">Current Designation:</label>
-  <input type="text" class="form-control" id="curemp">
+  <input type="text" class="form-control" name="curemp" id="curemp">
   <label for="curind">Current Industry:</label>
-  <input type="text" class="form-control" id="curind">
+  <input type="text" class="form-control" name="curind" id="curind">
 </div>
   <div >
     <h2>Academics</h2>
   </div>
   <div class="form-group">
     <label for="quali">Highest Qualification:</label>
-    <input type="text" class="form-control" id="quali">
+    <input type="text" class="form-control" name="quali" id="quali">
   </div>
   <div >
     <h2>Experience</h2>
   </div>
   <div >
     <label for="quali">Years of experience in Relavant Field:</label>
-    <input type="number" class="form-control " id="demo">
+    <input type="number" class="form-control" name="demo" id="demo">
 </div>
 <div>
   <br/>

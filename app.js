@@ -22,10 +22,12 @@ con.connect((err) => {
 
 
 app.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/Candidate_App/form1.html'));
+  res.sendFile(path.join(__dirname+'/Candidate_App/home.html'));
 });
 
-
+app.get('/form1.html',function(req,res){
+  res.sendFile(path.join(__dirname+'/Candidate_App/form1.html'));
+});
 
 app.post('/submit',function(req,res){
 

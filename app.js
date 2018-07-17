@@ -15,6 +15,22 @@ const con = mysql.createConnection({
   database: 'basictest'
 });
 
+//Used for retrieving joblist from MYSQL db
+//Stores and overrides dbjob
+var dbjob = {};
+function retrievejoblist(){
+  con.query('SELECT * FROM joblist', (err,rows) => {
+  if(err) throw err;
+
+  console.log('Data received from Db:\n');
+  console.log(rows);
+  for (i=0;i<rows.length; i++){
+  	dbjob[i+1]=rows[i].job;
+  };
+  });
+};
+
+//Initial connect to db
 con.connect((err) => {
     if (err) {
   	console.log('Error connecting to the database');
@@ -23,8 +39,10 @@ con.connect((err) => {
   	console.log('Connected!');
 });
 
-
+//Redirects to pages depending on requested url
 app.get('/',function(req,res){
+  retrievejoblist();
+  console.log(dbjob);
   res.sendFile(path.join(__dirname+'/Candidate_App/home.html'));
 });
 
@@ -32,19 +50,25 @@ app.get('/form1.html',function(req,res){
   res.sendFile(path.join(__dirname+'/Candidate_App/form1.html'));
 });
 
+app.get('/cantfind.html',function(req,res){
+  res.sendFile(path.join(__dirname+'/Candidate_App/cantfind.html'));
+});
 
-var jobs = {
-	1:'HR SERVICE EXECUTIVE',
+/*var jobs = {
+	1:'HR Service Executive',
 	2:'Assistant General Manager - Sales',
 	3:'CEO-Retail',
 	4:'Financial Controller',
 	5:'Assistant Manager - HR & Admin',
 	6:'Head of Business Process Re-Engineering'
-}
-app.get('/form/:id', function(req,res){
-	res.render('form',{job:jobs[req.params.id]});
-})
+};*/
 
+//Gives customized template depending on job picked
+app.get('/form/:id', function(req,res){
+	res.render('form',{job:dbjob[req.params.id]});
+});
+
+//Submit job application
 app.post('/submit',function(req,res){
 
 	var fname = req.body.fname;

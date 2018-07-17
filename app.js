@@ -5,6 +5,9 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.set('view engine','ejs');
+app.set("views", path.join(__dirname + "/Candidate_App/views"));
+
 const con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -28,6 +31,19 @@ app.get('/',function(req,res){
 app.get('/form1.html',function(req,res){
   res.sendFile(path.join(__dirname+'/Candidate_App/form1.html'));
 });
+
+
+var jobs = {
+	1:'HR SERVICE EXECUTIVE',
+	2:'Assistant General Manager - Sales',
+	3:'CEO-Retail',
+	4:'Financial Controller',
+	5:'Assistant Manager - HR & Admin',
+	6:'Head of Business Process Re-Engineering'
+}
+app.get('/form/:id', function(req,res){
+	res.render('form',{job:jobs[req.params.id]});
+})
 
 app.post('/submit',function(req,res){
 

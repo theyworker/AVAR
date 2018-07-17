@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Automated Value Added Recruiting</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-header">
+        <img src="#" alt="<KR Logo>">
+      </div>
+      <div>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="#">How it works?</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <div class="container" >
+    <div class="page-header">
+      <h1>Application for <%= job %> </h1>
+    </div>
+    <form class="col-md-6" action="/submit" method="POST">
+      <div id="biodata">
+        <div >
+          <h2>Bio Data</h2>
+        </div>
+      <div class="form-group">
+    <label for="fname">Full Name:</label>
+    <input type="text" class="form-control" name="fname" id="fname">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" name="email" id="email">
+  </div>
+  <div class="form-group">
+    <label for="tel">Telephone Number:</label>
+    <input type="tel" class="form-control" name="tel" id="tel">
+  </div>
+  <div class="form-group">
+    <label for="address">Address:</label>
+    <textarea type="text" class="form-control" name="address" id="address"></textarea>
+  </div>
+</div>
+<div >
+  <h2>Current Employment</h2>
+</div>
+<div class="form-group">
+  <label for="curemp">Current Designation:</label>
+  <input type="text" class="form-control" name="curemp" id="curemp">
+  <label for="curind">Current Industry:</label>
+  <input type="text" class="form-control" name="curind" id="curind">
+</div>
+  <div >
+    <h2>Academics</h2>
+  </div>
+  <div class="form-group">
+    <label for="quali">Highest Qualification:</label>
+    <input type="text" class="form-control" name="quali" id="quali">
+  </div>
+  <div >
+    <h2>Experience</h2>
+  </div>
+  <div >
+    <label for="quali">Years of experience in Relavant Field:</label>
+    <input type="number" class="form-control" name="demo" id="demo">
+</div>
+<div>
+  <br/>
+      <h4>Upload your updated CV </h4><input type="file">
+
+</div>
+<br/>
+<input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>

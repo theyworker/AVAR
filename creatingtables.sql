@@ -17,3 +17,6 @@ CREATE TABLE `candidatetest` (
 CREATE TABLE `basictest`.`joblist` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `job` varchar(50) NOT NULL,
   PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+INSERT INTO joblist ('job') VALUES ('HR Services Executive'),('Assistant General Manger - Sales'),
+('CEO-Retail'),('Financial Controller'),('Assistant Manager - HR & Admin'),('Head of Business Process Re-Engineering')

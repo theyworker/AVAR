@@ -32,7 +32,7 @@
     <div class="page-header">
       <h1>Application for ~position~ </h1>
     </div>
-    <form class="col-md-6" action="/submit" method="POST">
+    <form class="col-md-6" action="/submit" method="POST" encType="multipart/form-data">
       <div id="biodata">
         <div >
           <h2>Bio Data</h2>
@@ -79,7 +79,7 @@
 </div>
 <div>
   <br/>
-      <h4>Upload your updated CV </h4><input type="file">
+      <h4>Upload your updated CV </h4><input type="file" name="cvfile">
 
 </div>
 <br/>

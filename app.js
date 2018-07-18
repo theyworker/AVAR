@@ -41,14 +41,14 @@ con.connect((err) => {
 });
 
 //Redirects to pages depending on requested url
-app.get('/',function(req,res){
+app.get('/backup',function(req,res){
   //retrievejoblist();
   console.log(dbjob);
   res.sendFile(path.join(__dirname+'/Candidate_App/home.html'));
 });
 
 //Renders home page template with joblist from DB
-app.get('/test',function(req,res){
+app.get('/',function(req,res){
 	retrievejoblist();
 	res.render('home',{job:dbjob});
 });

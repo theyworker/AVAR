@@ -84,23 +84,26 @@ app.post('/submit',function(req,res){
 
 	var cv = req.files.cvfile;
 
-	cv.mv("./cvs/1.pdf",function(err){
+	//Stores directory of CVs with a UUID as name in DB
+	var dir = './cvs/'+guid()+'.pdf';
+
+	cv.mv(dir,function(err){
         if(err){
             console.log(err);
-            res.write("An error has occurred uploading your CV! \n");
+            console.log("An error has occurred uploading your CV!");
         }
         else
         {
-            res.write("CV has been uploaded \n");
+            console.log("CV has been uploaded");
         }
     });
 
 	res.write('You sent the name "' + req.body.fname+'".\n');
   	res.write('You sent the email "' + req.body.email+'".\n');
-	console.log('This just in!!! '+ fname + ' and ' +email);
+	console.log('This just in!!! '+ fname + ' and ' +email+ ' and '+ dir);
 
-	var sql = "INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo) "
-	+"VALUES ('"+fname+"','"+email+"','"+tel+"','"+address+"','"+curemp+"','"+curind+"','"+quali+"','"+demo+"')";
+	var sql = "INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo,cvdir) "
+	+"VALUES ('"+fname+"','"+email+"','"+tel+"','"+address+"','"+curemp+"','"+curind+"','"+quali+"','"+demo+"','"+dir+"')";
 	con.query(sql, function(err,result){
 		if (err) throw err;
 		console.log("Inserted 1 record");
@@ -108,6 +111,18 @@ app.post('/submit',function(req,res){
 	})
 
 })
+
+//Generates a UUID for pdfs to store
+function guid() {
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+
+function s4() {
+  return Math.floor((1 + Math.random()) * 0x10000)
+    .toString(16)
+    .substring(1);
+}
 
 app.listen(3000);
 console.log("Running at Port 3000");

@@ -10,6 +10,7 @@ CREATE TABLE `candidatetest` (
   `quali` varchar(50) DEFAULT NULL,
   `demo` int(10) DEFAULT NULL,
   `remarks` varchar(50) DEFAULT NULL,
+  `cvdir` varchar(50) DEFAULT NULL,
   `id` int(10) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

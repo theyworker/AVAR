@@ -4,6 +4,8 @@ var path    = require("path");
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+fileupload = require('express-fileupload');
+app.use(fileupload());
 
 app.set('view engine','ejs');
 app.set("views", path.join(__dirname + "/Candidate_App/views"));
@@ -79,6 +81,19 @@ app.post('/submit',function(req,res){
 	var curind = req.body.curind;
 	var quali = req.body.quali;
 	var demo = req.body.demo;
+
+	var cv = req.files.cvfile;
+
+	cv.mv("./cvs/1.pdf",function(err){
+        if(err){
+            console.log(err);
+            res.write("An error has occurred uploading your CV! \n");
+        }
+        else
+        {
+            res.write("CV has been uploaded \n");
+        }
+    });
 
 	res.write('You sent the name "' + req.body.fname+'".\n');
   	res.write('You sent the email "' + req.body.email+'".\n');

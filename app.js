@@ -24,11 +24,10 @@ function retrievejoblist(){
   con.query('SELECT * FROM joblist', (err,rows) => {
   if(err) throw err;
 
-  console.log('Data received from Db:\n');
-  console.log(rows);
   for (i=0;i<rows.length; i++){
   	dbjob[i+1]=rows[i].job;
   };
+  //console.log(dbjob);
   });
 };
 
@@ -43,9 +42,15 @@ con.connect((err) => {
 
 //Redirects to pages depending on requested url
 app.get('/',function(req,res){
-  retrievejoblist();
+  //retrievejoblist();
   console.log(dbjob);
   res.sendFile(path.join(__dirname+'/Candidate_App/home.html'));
+});
+
+//Renders home page template with joblist from DB
+app.get('/test',function(req,res){
+	retrievejoblist();
+	res.render('home',{job:dbjob});
 });
 
 app.get('/form1.html',function(req,res){
@@ -124,5 +129,7 @@ function s4() {
     .substring(1);
 }
 
-app.listen(3000);
+app.listen(3000, function(){
+	retrievejoblist();
+});
 console.log("Running at Port 3000");

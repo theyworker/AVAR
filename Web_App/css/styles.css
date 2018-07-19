@@ -176,3 +176,26 @@
 {
     width: 400px;
 }
+.candyform
+{
+    padding-top: 15px;
+}
+
+
+.tstyle,tr
+{
+    border: solid 2px #FF7800;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+th
+{
+    font-size: 20px;
+    color: #DDDDDD;
+}
+tbody
+{
+    height:80em;
+    overflow: scroll;
+}

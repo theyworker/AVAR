@@ -49,8 +49,6 @@
 	}
 }
 
-
-
 .modal {
 	display:none;
     position: fixed;
@@ -70,8 +68,9 @@
     border: 1px solid #888;
     border-radius: 10px !important;
     width: 600px;
-    height: 600px; 
+    height: 700px; 
 	padding-bottom: 30px;
+    overflow-y: scroll;
 }
 .close {
     position: absolute;
@@ -95,9 +94,6 @@
     from {transform: scale(0)} 
     to {transform: scale(1)}
 }
-
-
-
 
 .rad-info-box{  
     margin-bottom:16px;
@@ -175,6 +171,11 @@
 .formcon
 {
     width: 400px;
+    font-size: 17px;
+}
+.formstyle
+{
+    font-size: 17px !important;
 }
 .candyform
 {
@@ -199,3 +200,49 @@ tbody
     height:80em;
     overflow: scroll;
 }
+
+.navhead
+{
+    background-color: #233982;
+    margin-top: 0;
+    height: 70px;
+    border-radius: 0 !important;
+}
+
+.navhead img
+{
+    padding-top: 8px;
+}
+
+.navhead ul li a 
+{
+    color: white;
+    font-size: 18px;
+}
+
+.navhead ul 
+{
+    padding-top: 10px;
+}
+
+
+.loginpad
+{
+    margin-top: 10px;
+}
+
+.loginpad input
+{
+    font-size:23px;
+}
+.loginpad label
+{
+    font-size:23px;
+    text-align: center;
+}
+.loginpad button
+{
+    width:100px; 
+    font-size: 20px;
+}
+   

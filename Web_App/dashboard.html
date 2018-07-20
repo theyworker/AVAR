@@ -36,9 +36,9 @@
           </div>
         <!-- /form-group -->
         </form>
-      <!-- /.max-width on this form -->    
+      <!-- /.max-width on this form -->
       </div>
-    <!-- /.featurette-inner (display:table-cell) -->   
+    <!-- /.featurette-inner (display:table-cell) -->
     </div>
 
     <div class="container">
@@ -46,7 +46,7 @@
         <div class="btn-group dropdown">
           <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">Advance Search
             <span class="caret"></span>
-          </button> 
+          </button>
           <ul class="dropdown-menu" style="width: 340px;height: 300px;border-radius: 8px; background-color: #D7D6DC">
             <form style="padding-left: 40px;">
               <li class="dropdown-header" style="padding-left: 80px;">Find Who Applied</li>
@@ -89,19 +89,20 @@
       <div class="wrapper" style="margin-right: 125px;margin-top: 100px;">
         <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-lg btn-success pull-right" type="button" name="createpost" value="Create Post" >
         <div class="container">
-          <div id="modal-wrapper" class="modal">             
+          <div id="modal-wrapper" class="modal">
             <form class="modal-content animate" action="/create" method="POST">
               <h1 style="margin-bottom: 35px;padding-top: 20px;">Create Post</h1>
               <div class="imgcontainer">
                 <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
               </div>
               <div class="form-group formcon">
-                <input type="text" placeholder="Type Position" class="form-control" style="margin-bottom:10px; font-size:18px;">
+                <label>Job Position</label>
+                <input type="text" placeholder="Type Position" class="form-control"  id="seljob" name="seljob" style="margin-bottom:10px; font-size:18px;">
               </div>
               <hr>
               <div class="form-group formcon">
                 <label>Select Industry:</label>
-                <select class="form-control formstyle">
+                <select class="form-control formstyle" id="selind" name="selind">
                   <option>--Select industry--</option>
                   <option>Academic</option>
                   <option>Academic & Salon</option>
@@ -172,12 +173,12 @@
                   <option>Tea</option>
                   <option>Telecommunication</option>
                   <option>Trainee</option>
-                </select>          
+                </select>
               </div>
               <hr>
               <div class="form-group formcon">
                 <label for="sel1">Select Level:</label>
-                <select class="form-control formstyle">
+                <select class="form-control formstyle" id="sellvl" name="sellvl">
                   <option>--Select level--</option>
                   <option>Operational</option>
                   <option>Managerial</option>
@@ -194,24 +195,24 @@
                 <input type="hidden" name="count" value="1" />
                 <div class="control-group" id="fields">
                   <label class="control-label" for="field1">Add Questions</label>
-                    <div class="controls" id="profs"> 
+                    <div class="controls" id="profs">
                       <form class="input-append input-group">
-                        <div id="field"> 
+                        <div id="field">
                           <input autocomplete="off" class="form-control" id="field1" name="prof1" type="text" data-items="8"/>
                           <button id="b1" class="btn btn-success add-more" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></button>
                         </div>
                       </form>
                     </div>
                 </div>
- 
+
                 <div class="pull-right" style="padding-top: 30px;">
                   <input class="btn btn-lg btn-success" type="submit" name="submit" value="Submit">
-                </div>            
-              </div> 
+                </div>
+              </div>
             </form>
-          </div>  
+          </div>
         </div>
-      </div> 
+      </div>
     </div>
   </div>
 
@@ -291,8 +292,8 @@
         }
   }
   </script>
-  
-  <script type="text/javascript">  
+
+  <script type="text/javascript">
       $(document).ready(function()
       {
         var next = 1;
@@ -310,8 +311,8 @@
           $(addRemove).after(removeButton);
 
           $("#field" + next).attr('data-source',$(addto).attr('data-source'));
-          $("#count").val(next);  
-        
+          $("#count").val(next);
+
             $('.remove-me').click(function(e)
             {
                 e.preventDefault();
@@ -320,7 +321,7 @@
                 $(this).remove();
                 $(fieldID).remove();
             });
-        });   
+        });
       });
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

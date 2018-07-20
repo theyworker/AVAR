@@ -70,7 +70,7 @@
     width: 600px;
     height: 700px; 
 	padding-bottom: 30px;
-    overflow: scroll;
+    overflow: auto;
 }
 .close {
     position: absolute;
@@ -245,4 +245,11 @@ tbody
     width:100px; 
     font-size: 20px;
 }
+
+hr 
+{ 
+    border-width: 1px !important;
+    border-color: #DDDDDD !important;
+    width: 95%;
+} 
    

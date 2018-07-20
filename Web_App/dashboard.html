@@ -68,11 +68,12 @@
         <div class="container">
           <div id="modal-wrapper" class="modal">             
             <form class="modal-content animate" action="/create" method="POST">
-              <h1 style="margin-bottom: 20px;padding-top: 20px;">Create Post</h1>
+              <h1 style="margin-bottom: 35px;padding-top: 20px;">Create Post</h1>
               <div class="imgcontainer">
                 <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
               </div>
               <div class="form-group formcon">
+                <input type="text" placeholder="Type Industry" class="form-control" style="margin-bottom:10px; font-size:18px;">
                 <label for="sel1">Select Industry:</label>
                 <select class="form-control formstyle">
                   <option>--Select industry--</option>
@@ -145,9 +146,11 @@
                   <option>Tea</option>
                   <option>Telecommunication</option>
                   <option>Trainee</option>
-                </select>
+                </select>          
               </div>
+              <hr>
               <div class="form-group formcon">
+                <input type="text" placeholder="Type Job" class="form-control" style="margin-bottom:10px; font-size:18px;">
                 <label for="sel1">Select Job:</label>
                 <select class="form-control formstyle">
                   <option>--Select job--</option>
@@ -213,7 +216,9 @@
                   <option>Other</option>
                 </select>
               </div>
+              <hr>
               <div class="form-group formcon">
+                <input type="text" placeholder="Type Level" class="form-control" style="margin-bottom:10px; font-size:18px; color: black;">
                 <label for="sel1">Select Level:</label>
                 <select class="form-control formstyle">
                   <option>--Select level--</option>
@@ -222,10 +227,12 @@
                   <option>Strategic</option>
                 </select>
               </div>
+              <hr>
               <div class="form-group formcon">
                 <label for="comment">Discription:</label>
                 <textarea class="form-control form-control-lg" rows="5"></textarea>
               </div>
+              <hr>
               <div class="form-group formcon">
                 <input type="hidden" name="count" value="1" />
                 <div class="control-group" id="fields">

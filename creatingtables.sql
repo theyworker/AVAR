@@ -1,4 +1,4 @@
-CREATE DATABASE `basictest`
+CREATE DATABASE `basictest`;
 
 CREATE TABLE `basictest`.`candidatetest` (
   `fname` varchar(50) DEFAULT NULL,

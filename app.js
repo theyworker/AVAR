@@ -1,5 +1,4 @@
 var app = require('express')()
-app.use(express.static(__dirname + '/public'));
 const mysql = require('mysql')
 var path = require('path')
 var bodyParser = require('body-parser')
@@ -17,7 +16,7 @@ app.set('views', path.join(__dirname, '/Candidate_App/views'))
 const con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Hun7Y0u&Dr3@m',
+  password: '',
   database: 'basictest'
 })
 

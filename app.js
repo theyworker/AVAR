@@ -61,6 +61,10 @@ app.get('/cantfind.html', function (req, res) {
   res.sendFile(path.join(__dirname, '/Candidate_App/cantfind.html'))
 })
 
+app.get('/rc', function (req, res) {
+  res.sendFile(path.join(__dirname, '/Web_App/dashboard.html'))
+})
+
 /* var jobs = {
  1:'HR Service Executive',
  2:'Assistant General Manager - Sales',
@@ -125,6 +129,26 @@ function s4 () {
     .toString(16)
     .substring(1)
 }
+
+// Create a job post
+app.post('/create', function (req, res) {
+  var job = req.body.seljob
+  var industry = req.body.selind
+  var lvl = req.body.sellvl
+  var desc = req.body.txtdesc
+
+  res.write('You just added the job "' + req.body.sellvl + ' ' + req.body.seljob + ' in ' + req.body.selind + '" \n')
+  res.write('That was a mouthful to print!\n')
+  console.log('Job created! ' + lvl + ' ' + job + ' in ' + industry + '!')
+
+  var sql = 'INSERT INTO joblist (job, industry, level, description)' + 
+  "VALUES ('" + job + "','" + industry + "','" + lvl + "','" + desc + "')"
+  con.query(sql, function (err, result) {
+    if (err) throw err
+    console.log('Inserted 1 job')
+    res.end()
+  })
+})
 
 app.listen(3000, function () {
   retrievejoblist()

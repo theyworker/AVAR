@@ -89,6 +89,7 @@ app.post('/submit', function (req, res) {
   var curind = req.body.curind
   var quali = req.body.quali
   var demo = req.body.demo
+  var apply = req.body.applied
 
   var cv = req.files.cvfile
 
@@ -109,8 +110,8 @@ app.post('/submit', function (req, res) {
   res.write('You sent the email "' + req.body.email + '".\n')
   console.log('This just in!!! ' + fname + ' and ' + email + ' and ' + dir)
 
-  var sql = 'INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo,cvdir)' +
-  "VALUES ('" + fname + "','" + email + "','" + tel + "','" + address + "','" + curemp + "','" + curind + "','" + quali + "','" + demo + "','" + dir + "')"
+  var sql = 'INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo, cvdir, appliedjob)' +
+  "VALUES ('" + fname + "','" + email + "','" + tel + "','" + address + "','" + curemp + "','" + curind + "','" + quali + "','" + demo + "','" + dir + "','" + apply + "')"
   con.query(sql, function (err, result) {
     if (err) throw err
     console.log('Inserted 1 record')

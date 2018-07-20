@@ -30,4 +30,4 @@ CREATE TABLE `basictest`.`credentials` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-INSERT INTO `credentials`(`username`, `password`) VALUES ('user','pass');
+INSERT INTO  `basictest`.`credentials`(`username`, `password`) VALUES ('user','pass');

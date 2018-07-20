@@ -1,4 +1,5 @@
 var app = require('express')()
+app.use(express.static(__dirname + '/public'));
 const mysql = require('mysql')
 var path = require('path')
 var bodyParser = require('body-parser')
@@ -7,13 +8,16 @@ app.use(bodyParser.json())
 var fileupload = require('express-fileupload')
 app.use(fileupload())
 
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/Candidate_App/views'))
+
+
 
 const con = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'Hun7Y0u&Dr3@m',
   database: 'basictest'
 })
 
@@ -161,7 +165,7 @@ app.post('/create', function (req, res) {
   res.write('That was a mouthful to print!\n')
   console.log('Job created! ' + lvl + ' ' + job + ' in ' + industry + '!')
 
-  var sql = 'INSERT INTO joblist (job, industry, level, description)' + 
+  var sql = 'INSERT INTO joblist (job, industry, level, description)' +
   "VALUES ('" + job + "','" + industry + "','" + lvl + "','" + desc + "')"
   con.query(sql, function (err, result) {
     if (err) throw err

@@ -31,6 +31,25 @@ function retrievejoblist () {
   })
 };
 
+var validation = false
+function login (user, pass, callback) {
+  con.query('SELECT * FROM credentials', (err, rows) => {
+    if (err) throw err
+
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].username == user && rows[i].password == pass) {
+        console.log('Login Success!')
+        validation = true
+        return
+      }
+      else {
+        validation = false
+      }
+    };
+  })
+  callback();
+};
+
 // Initial connect to db
 con.connect((err) => {
   if (err) {
@@ -62,7 +81,7 @@ app.get('/cantfind.html', function (req, res) {
 })
 
 app.get('/rc', function (req, res) {
-  res.sendFile(path.join(__dirname, '/Web_App/dashboard.html'))
+  res.sendFile(path.join(__dirname, '/Web_App/login.html'))
 })
 
 /* var jobs = {
@@ -148,6 +167,29 @@ app.post('/create', function (req, res) {
     if (err) throw err
     console.log('Inserted 1 job')
     res.end()
+  })
+})
+
+app.post('/login', function (req, res) {
+  var user1 = req.body.username
+  var pass1 = req.body.password
+
+  /*if (login(user1, pass1) == true){
+    console.log('Proceeding to send dashboard html')
+    //res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
+  }
+  else {
+    console.log('Sorry failed. Too bad. So sad')
+    //res.write('Sorry, you have entered an incorrect username or password!')
+  }*/
+  login(user1, pass1, function () {
+    if (validation == true){
+      console.log('Proceeding to send dashboard html')
+      res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
+    }
+    else {
+      console.log('Sorry failed. Too bad. So sad')
+    }
   })
 })
 

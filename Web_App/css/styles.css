@@ -70,7 +70,7 @@
     width: 600px;
     height: 700px; 
 	padding-bottom: 30px;
-    overflow-y: scroll;
+    overflow: scroll;
 }
 .close {
     position: absolute;

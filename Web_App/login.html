@@ -30,22 +30,22 @@
 
   <div class="container" >
 
-      <form >
+      <form action="/login" method="POST">
       <div class="col-md-4 col-md-offset-4 p-3 mb-2 bg-info text-white" style="margin-top:10%;border-radius: 6px;">
         <h2 style="text-align: center;"><strong>Kent Ridge Login</strong></h2>
         <div class="loginpad">
           <br/>
           <label for="name">Username</label>
-          <input type="text" class="form-control form-control-lg">
+          <input type="text" class="form-control form-control-lg" name="username" id="username">
         </div>
         <div class="loginpad">
           <label for="name">Password</label>
-          <input type="password" class="form-control form-control-lg">
+          <input type="password" class="form-control form-control-lg" name="password" id="password">
         </div>
 
         <div class="loginpad">
           <br/>
-          <button type="button" name="send" class="btn btn-lg btn-success center-block loginpad">Login</button>
+          <button type="submit" name="send" class="btn btn-lg btn-success center-block loginpad">Login</button>
           <br/>
         </div>
       </div>

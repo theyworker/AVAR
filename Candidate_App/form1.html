@@ -9,23 +9,29 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <img src="#" alt="<KR Logo>">
-      </div>
-      <div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#">How it works?</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+<nav class="navbar navhead">
+    <div class="col-md-10" style="margin-left: 152px;">
+        <div class="container ">
+            <div class="navbar-header">
+                <img src="images/site_logo.jpg" alt="<KR Logo>">
+            </div>
+            <div >
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#">How it works?</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
 
+        </div>
     </div>
-
-  </nav>
+    <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
+        <div class="pull-right">
+            <input class="btn btn-lg btn-success " type="submit" name="login" value="Login">
+        </div>
+    </div>
+</nav>
 
 
   <div class="container" >
@@ -68,7 +74,16 @@
   </div>
   <div class="form-group">
     <label for="quali">Highest Qualification:</label>
-    <input type="text" class="form-control" name="quali" id="quali">
+    <select class="form-control formstyle" style="width: 250px;"  name="quali" id="quali">
+                  <option>--Select Education--</option>
+                  <option>Certificate</option>
+                  <option>Diploma</option>
+                  <option>Higher Diploma</option>
+                  <option>Bachelor</option>
+                  <option>Master's Degree</option>
+                  <option>phD</option>
+                </select>
+   <!-- <input type="text" class="form-control">-->
   </div>
   <div >
     <h2>Experience</h2>

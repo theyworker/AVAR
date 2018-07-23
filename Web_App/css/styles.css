@@ -68,9 +68,13 @@
     border: 1px solid #888;
     border-radius: 10px !important;
     width: 600px;
-    height: 700px; 
+    height: 850px;
 	padding-bottom: 30px;
     overflow: auto;
+}
+.createRec
+{
+    height: 550px !important;
 }
 .close {
     position: absolute;
@@ -185,10 +189,10 @@
 
 .tstyle,tr
 {
-    border: solid 2px #FF7800;
+    border: solid 2px #FF9400;
     border-left: 0px;
     border-right: 0px;
-    border-bottom: 0px;
+    border-bottom: 0px ;
 }
 th
 {
@@ -258,3 +262,12 @@ hr
     font-size: 14px;
 
 }
+
+.dropdownlist
+{
+    width: 340px !important;
+    height: 380px !important;
+    border-radius: 8px !important;
+    background-color: #D7D6DC !important;
+}
+

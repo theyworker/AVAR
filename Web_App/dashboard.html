@@ -36,9 +36,9 @@
           </div>
         <!-- /form-group -->
         </form>
-      <!-- /.max-width on this form -->    
+      <!-- /.max-width on this form -->
       </div>
-    <!-- /.featurette-inner (display:table-cell) -->   
+    <!-- /.featurette-inner (display:table-cell) -->
     </div>
 
     <div class="container">
@@ -46,37 +46,38 @@
         <div class="btn-group dropdown">
           <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">Advance Search
             <span class="caret"></span>
-          </button> 
-          <ul class="dropdown-menu" style="width: 340px;height: 300px;border-radius: 8px; background-color: #D7D6DC">
-            <form style="padding-left: 20px;">
-              <li class="dropdown-header">Find Who Applied</li>
-              <li>Experience</li>
-              <li>Experience</li>
-              <li>Experience</li>
-              <div class="pull-right" style="padding-right: 23px; padding-top: 10px;">
-                <input class="btn btn-success" type="button" name="Search" value="Search">
-              </div>
-            </form>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-<<<<<<< HEAD
-    <div class="container">
-      <div class="wrapper" style="margin-right: 125px;margin-top: 100px;">
-        <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-lg btn-success pull-right" type="button" name="createpost" value="Create Post" >
-        <div class="container">
-          <div id="modal-wrapper" class="modal">             
-            <form class="modal-content animate" action="">
-              <h1 style="margin-bottom: 20px;padding-top: 20px;">Create Post</h1>
-              <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
-              </div>
-              <div class="form-group formcon">
-                <label for="sel1">Select Industry:</label>
-                <select class="form-control formstyle">
-                  <option>--Select industry--</option>
+          </button>
+          <ul class="dropdown-menu" style="width: 340px;height: 350px;border-radius: 8px; background-color: #D7D6DC">
+            <form style="padding-left: 40px;" action="/action_page.php">
+              <li class="dropdown-header" style="padding-left: 80px;">Find Who Applied</li>
+              
+              <li>Experience <select class="form-control formstyle" style="width: 250px;">
+                  <option>--Select Experience--</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                </select>
+              </li>
+              <li>Education<select class="form-control formstyle" style="width: 250px;">
+                  <option>--Select Education--</option>
+                  <option>Certificate</option>
+                  <option>Diploma</option>
+                  <option>Higher Diploma</option>
+                  <option>Bachelor</option>
+                  <option>Master's Degree</option>
+                  <option>phD</option>
+                </select></li>
+              <li>CV Uploaded Date<br>
+                <input type="date" style="width: 250px; font-size: 17px;"></li>
+                <li>Industry<select class="form-control formstyle" id="selind" name="selind" style="
+    width: 250px;
+">
+                  <option>--Select Industry--</option>
                   <option>Academic</option>
                   <option>Academic & Salon</option>
                   <option>Advertising</option>
@@ -146,161 +147,150 @@
                   <option>Tea</option>
                   <option>Telecommunication</option>
                   <option>Trainee</option>
-                </select>
-=======
-      <div class="container">
-        <div class="wrapper" style="margin-right: 125px;margin-top: 100px;">
-          <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-lg btn-success pull-right" type="button" name="createpost" value="Create Post" >
+                </select></li>
+              <li>Position<select class="form-control formstyle" id="selind" name="selind" style="
+    width: 250px;
+">
+                  <option>--Select Position--</option>
+                </select></li>
+              <div class="pull-right" style="padding-right: 23px; padding-top: 10px;">
+                <input class="btn btn-success" type="button" name="Search" value="Search">
+              </div>
+            </form>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-           
-              <div class="container">
-                          <div id="modal-wrapper" class="modal">
-                
-                 <form class="modal-content animate" action="/create" method="POST">
-                  <h1 style="margin-bottom: 20px;padding-top: 20px;">Create Post</h1>
+    <div class="container">
+      <div class="wrapper" style="margin-right: 125px;margin-top: 100px;">
+        <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-lg btn-success pull-right" type="button" name="createpost" value="Create Post" >
+        <div class="container">
+          <div id="modal-wrapper" class="modal">
+            <form class="modal-content animate" action="/create" method="POST">
+              <h1 style="margin-bottom: 35px;padding-top: 20px;">Create Post</h1>
               <div class="imgcontainer">
                 <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
               </div>
-                  <div class="form-group formcon">
-                  <label for="sel1">Select Industry:</label>
-                  <select class="form-control" id="selind" name="selind">
-                    <option>--Select industry--</option>
-                    <option>Academic</option>
-                    <option>Advertising</option>
-                    <option>Airline</option>
-                    <option>Apparel</option>
-                  </select>
-                </div>
-                <div class="form-group formcon">
-                  <label for="sel1">Select Job:</label>
-                  <select class="form-control" id="seljob" name="seljob">
-                    <option>--Select job--</option>
-                    <option>HR</option>
-                    <option>Sales</option>
-                    <option>Marketing</option>
-                    <option>Finance & Accounting</option>
-                  </select>
-                </div>
-                <div class="form-group formcon">
-                  <label for="sel1">Select Level:</label>
-                  <select class="form-control" id="sellvl" name="sellvl">
-                    <option>--Select level--</option>
-                    <option>Operational</option>
-                    <option>Managerial</option>
-                    <option>Something else</option>
-                  </select>
-                </div>
-                <div class="form-group formcon">
-                  <label for="comment">Description:</label>
-                  <textarea class="form-control" rows="5" id="txtdesc" name="txtdesc"></textarea>
-                </div>
-                <label for="sel1">Add Question:</label>
-
-                <div class="pull-right" style="padding-right: 23px; padding-top: 20px;">
-                <input class="btn btn-success" type="submit" name="submit" value="Submit">
->>>>>>> a478a8c4cd9e5dc72a1b8e7e21369f1f72018481
-              </div>
               <div class="form-group formcon">
-                <label for="sel1">Select Job:</label>
-                <select class="form-control formstyle">
-                  <option>--Select job--</option>
-                  <option>HR
-                  <option>Sales</option>
-                  <option>Marketing</option>
-                  <option>Finance & Accounting</option>
-                  <option>Quality</option>
-                  <option>Procurement & Logistics</option>
-                  <option>Lecturing</option>
-                  <option>IT</option>
-                  <option>SHE</option>
-                  <option>Head</option>
-                  <option>PA/Secretary</option>
-                  <option>Receptionist</option>
-                  <option>Legal</option>
-                  <option>Business Development</option>
-                  <option>Merchandising</option>
-                  <option>Digital Marketing</option>
-                  <option>Admin/Facilities</option>
-                  <option>Electrical & Electronic</option>
-                  <option>Mechanical</option>
-                  <option>Civil</option>
-                  <option>Chemical</option>
-                  <option>Marine</option>
-                  <option>Aircraft</option>
-                  <option>Production Eng</option>
-                  <option>Draftman</option>
-                  <option>Sales</option>
-                  <option>Steel Eng.</option>
-                  <option>Electrical</option>
-                  <option>Recovery</option>
-                  <option>COO</option>
-                  <option>Content Writer</option>
-                  <option>Customer Care</option>
-                  <option>Travell</option>
-                  <option>Project</option>
-                  <option>MEP Engineer</option>
-                  <option>Computer Operator</option>
-                  <option>Pilot</option>
-                  <option>Production/Lean Mgt</option>
-                  <option>Safety</option>
-                  <option>Law</option>
-                  <option>Research</option>
-                  <option>Production</option>
-                  <option>Logistics</option>
-                  <option>Software</option>
-                  <option>Import/ Export</option>
-                  <option>Operations</option>
-                  <option>F & B (Restaurant)</option>
-                  <option>Technical</option>
-                  <option>Housekeeping</option>
-                  <option>Graphics</option>
+                <label>Job Position</label>
+                <input type="text" placeholder="Type Position" class="form-control"  id="seljob" name="seljob" style="margin-bottom:10px; font-size:18px;">
+              </div>
+              <hr>
+              <div class="form-group formcon">
+                <label>Select Industry:</label>
+                <select class="form-control formstyle" id="selind" name="selind">
+                  <option>--Select Industry--</option>
+                  <option>Academic</option>
+                  <option>Academic & Salon</option>
+                  <option>Advertising</option>
+                  <option>Air Cargo/ Freight</option>
+                  <option>Airline</option>
+                  <option>Apparel</option>
+                  <option>Automobile</option>
+                  <option>Bank</option>
+                  <option>Beverages</option>
+                  <option>Blueship</option>
+                  <option>BPO</option>
                   <option>Business Analyst</option>
-                  <option>SAP</option>
-                  <option>Teacher</option>
-                  <option>Pharmaceutical</option>
-                  <option>Storekeeper</option>
-                  <option>Office Assistant</option>
-                  <option>Material Engineer</option>
-                  <option>Technical Engineer</option>
+                  <option>Call centre</option>
+                  <option>Communications</option>
+                  <option>Computer Peripherals</option>
+                  <option>conglomerate</option>
+                  <option>Constructions</option>
+                  <option>Consulting</option>
+                  <option>Councelling</option>
+                  <option>Customer Service</option>
+                  <option>Diamond</option>
+                  <option>Digital Marketing</option>
+                  <option>Embassy</option>
+                  <option>Energy</option>
                   <option>Engineering</option>
-                  <option>Other</option>
+                  <option>Entertaintment</option>
+                  <option>Exports</option>
+                  <option>Finance</option>
+                  <option>Fishery</option>
+                  <option>FMCG</option>
+                  <option>FMGC</option>
+                  <option>Food</option>
+                  <option>Forces</option>
+                  <option>Hardware</option>
+                  <option>Healthcare</option>
+                  <option>Herbal Cosmetic</option>
+                  <option>Hospital</option>
+                  <option>Hotel</option>
+                  <option>Hydro power</option>
+                  <option>Immigration</option>
+                  <option>Industry</option>
+                  <option>Indutsry info</option>
+                  <option>Insurance</option>
+                  <option>Investment</option>
+                  <option>IT & Electronics</option>
+                  <option>Logistic</option>
+                  <option>Manufacturing</option>
+                  <option>Manufacturing - Bevarages</option>
+                  <option>Manufacturing - Biscuit</option>
+                  <option>Manufacturing - food</option>
+                  <option>Manufacturing - Food/cable</option>
+                  <option>Manufacturing - Paints</option>
+                  <option>Manufacturing - Porcelain</option>
+                  <option>Manufacturing - Tyre</option>
+                  <option>Manufacturing - Tyre, apparel</option>
+                  <option>Manufacturing - Tyre, Biscuits</option>
+                  <option>Manufacturing & Waste Mgt</option>
+                  <option>Maritime</option>
+                  <option>Media</option>
+                  <option>Multinational</option>
+                  <option>Online markering</option>
+                  <option>Recruitment</option>
+                  <option>Renewable Energy</option>
+                  <option>Retail & Wholesale</option>
+                  <option>Security Services</option>
+                  <option>Shipping</option>
+                  <option>Tea</option>
+                  <option>Telecommunication</option>
+                  <option>Trainee</option>
+                </select></li>
                 </select>
               </div>
+              <hr>
               <div class="form-group formcon">
                 <label for="sel1">Select Level:</label>
-                <select class="form-control formstyle">
+                <select class="form-control formstyle" id="sellvl" name="sellvl">
                   <option>--Select level--</option>
                   <option>Operational</option>
                   <option>Managerial</option>
                   <option>Strategic</option>
                 </select>
               </div>
+              <hr>
               <div class="form-group formcon">
-                <label for="comment">Discription:</label>
-                <textarea class="form-control form-control-lg" rows="5"></textarea>
+                <label for="comment">Description:</label>
+                <textarea class="form-control form-control-lg" rows="5" id="txtdesc" name="txtdesc"></textarea>
               </div>
+              <hr>
               <div class="form-group formcon">
                 <input type="hidden" name="count" value="1" />
                 <div class="control-group" id="fields">
                   <label class="control-label" for="field1">Add Questions</label>
-                    <div class="controls" id="profs"> 
+                    <div class="controls" id="profs">
                       <form class="input-append input-group">
-                        <div id="field"> 
+                        <div id="field">
                           <input autocomplete="off" class="form-control" id="field1" name="prof1" type="text" data-items="8"/>
-                          <button id="b1" class="btn btn-success add-more" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></button>
+                          <button id="b1" class="btn btn-success add-more" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                         </div>
                       </form>
                     </div>
                 </div>
- 
+
                 <div class="pull-right" style="padding-top: 30px;">
-                  <input class="btn btn-lg btn-success" type="button" name="submit" value="Submit">
-                </div>            
-              </div> 
+                  <input class="btn btn-lg btn-success" type="submit" name="submit" value="Submit">
+                </div>
+              </div>
             </form>
-          </div>  
+          </div>
         </div>
-      </div> 
+      </div>
     </div>
   </div>
 
@@ -380,8 +370,8 @@
         }
   }
   </script>
-  
-  <script type="text/javascript">  
+
+  <script type="text/javascript">
       $(document).ready(function()
       {
         var next = 1;
@@ -399,8 +389,8 @@
           $(addRemove).after(removeButton);
 
           $("#field" + next).attr('data-source',$(addto).attr('data-source'));
-          $("#count").val(next);  
-        
+          $("#count").val(next);
+
             $('.remove-me').click(function(e)
             {
                 e.preventDefault();
@@ -409,7 +399,7 @@
                 $(this).remove();
                 $(fieldID).remove();
             });
-        });   
+        });
       });
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

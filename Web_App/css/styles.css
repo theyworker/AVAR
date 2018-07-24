@@ -1,4 +1,13 @@
-
+*
+{
+    margin: 0 ;
+    padding: 0;
+}
+html,body
+{
+    height: 100% !important;
+    background-color: silver !important;
+}
 /* ------ featurette */
 .featurette {
     display: table;
@@ -269,5 +278,28 @@ hr
     height: 380px !important;
     border-radius: 8px !important;
     background-color: #D7D6DC !important;
+}
+
+.logincon
+{
+    margin-top:10%;
+    border-radius: 6px;
+    height: 400px;
+}
+
+footer
+{
+    background-color: #233982;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p
+{
+    padding-top: 15px;
+    color: white;
+    font-size: 15px;
 }
 

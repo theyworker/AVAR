@@ -10,28 +10,28 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav class="navbar navhead">
-    <div class="container">
-      <div class="navbar-header">
-        <img src="images/site_logo.jpg" alt="<KR Logo>">
-      </div>
-      <div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#">How it works?</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+<header>
+    <nav class="navbar navhead">
+        <div class="container">
+            <div class="navbar-header">
+                <img src="images/site_logo.jpg" alt="<KR Logo>">
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#">How it works?</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
-    </div>
-
-  </nav>
 
   <div class="container" >
-
       <form action="/login" method="POST">
-      <div class="col-md-4 col-md-offset-4 p-3 mb-2 bg-info text-white" style="margin-top:10%;border-radius: 6px;">
+      <div class="col-md-4 col-md-offset-4 p-3 mb-2 bg-info text-white logincon">
         <h2 style="text-align: center;"><strong>Kent Ridge Login</strong></h2>
         <div class="loginpad">
           <br/>
@@ -48,8 +48,19 @@
           <button type="submit" name="send" class="btn btn-lg btn-success center-block loginpad">Login</button>
           <br/>
         </div>
+          <a href="">Forgot Password ?</a>
       </div>
     </form>
-  <div>
+  </div>
+
+      <footer style="position: absolute !important;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
+                      <p>© 2018 <a href="#">Kent Ridge</a>. All rights reserved.</p>
+                  </div><!-- end columns -->
+              </div><!-- end row -->
+          </div><!-- end container -->
+      </footer>
 </body>
 </html>

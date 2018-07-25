@@ -1,9 +1,11 @@
-var app = require('express')()
+const express = require("express");
+var app = express();
 const mysql = require('mysql')
 var path = require('path')
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'Web_App')));
 var fileupload = require('express-fileupload')
 app.use(fileupload())
 

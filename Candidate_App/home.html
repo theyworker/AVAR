@@ -8,59 +8,33 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <style type="text/css">
-   
-/* Style the search box */
-#mySearch {
- width: 100%;
- font-size: 18px;
- padding: 11px;
- border:1px solid #ddd;
-}
-
-/* Style the navigation menu */
-#myMenu {
- list-style-type: none;
- padding: 0;
- margin: 0;
-}
-
-/* Style the navigation links */
-#myMenu li a {
- background-color: #f6f6f6;
- padding: 12px;
- text-decoration: none;
- font-size: 18px;
- color: black;
- display: block
-}
-
-#myMenu li a:hover {
- background-color: #eee;
-}
-   
-
-
-
- </style>
 </head>
 <body>
-   <nav class="navbar navhead">
-      <div class="container">
-        <div class="navbar-header">
-          <img src="images/site_logo.jpg" alt="<KR Logo>">
-        </div>
-        <div>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="#">How it works?</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<header>
+    <nav class="navbar navhead">
+        <div class="col-md-10" style="margin-left: 152px;">
+            <div class="container ">
+                <div class="navbar-header">
+                    <img src="images/site_logo.jpg" alt="<KR Logo>">
+                </div>
+                <div >
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="#">How it works?</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
 
+            </div>
+        </div>
+        <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
+            <div class="pull-right">
+                <input class="btn btn-lg btn-success " type="submit" name="login" value="Login">
+            </div>
+        </div>
+    </nav>
+</header>
 
 
   <div class="container">
@@ -108,5 +82,21 @@ function cantfind() {
    <button type="button" name="send" class="btn btn-primary center-block" style="margin-top:30%; width:50%; height:80px; margin-left:20%;" onclick="cantfind()">Can't find</button>
  </div>
 </div>
+
+<footer style="position: absolute !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
+                <p>© 2018 <a href="#">Kent Ridge</a>. All rights reserved.</p>
+            </div><!-- end columns -->
+
+
+        </div><!-- end row -->
+    </div><!-- end container -->
+</footer>
+
+
+
+
 </body>
 </html>

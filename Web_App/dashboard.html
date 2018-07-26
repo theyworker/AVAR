@@ -10,12 +10,14 @@
 </head>
 
 <body>
-    <nav class="navbar navhead">
-      <div class="container">
+<header>
+  <nav class="navbar navhead">
+    <div class="col-md-10" style="margin-left: 152px;">
+      <div class="container ">
         <div class="navbar-header">
           <img src="images/site_logo.jpg" alt="<KR Logo>">
         </div>
-        <div>
+        <div >
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="#">How it works?</a></li>
@@ -23,8 +25,17 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
+
       </div>
-    </nav>
+    </div>
+    <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
+      <div class="pull-right">
+        <input class="btn btn-lg btn-success " type="submit" name="logout" value="Logout">
+      </div>
+    </div>
+  </nav>
+</header>
+
 
   <div class="container" align="center" style="background-color:#282923;height: 350px;border-radius: 10px;">
     <div class="featurette">
@@ -47,8 +58,9 @@
           <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">Advance Search
             <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu" style="width: 340px;height: 300px;border-radius: 8px; background-color: #D7D6DC">
-            <form style="padding-left: 40px;">
+          <ul class="dropdown-menu dropdownlist">
+            <form style="padding-left: 40px;" action="/action_page.php">
+
               <li class="dropdown-header" style="padding-left: 80px;">Find Who Applied</li>
               
               <li>Experience <select class="form-control formstyle" style="width: 250px;">
@@ -65,45 +77,21 @@
               </li>
               <li>Education<select class="form-control formstyle" style="width: 250px;">
                   <option>--Select Education--</option>
+
+                  <option>Certificate</option>
+                  <option>Diploma</option>
+                  <option>Higher Diploma</option>
                   <option>Bachelor</option>
                   <option>Master's Degree</option>
                   <option>phD</option>
                 </select></li>
-              <li>CV Uploaded Date<br><form action="/action_page.php">
-                <input type="date" style="width: 250px; font-size: 17px;">
-                <li>Experience</li>
-              <li>Experience</li>
-              </form></li>
-              
 
-              <div class="pull-right" style="padding-right: 23px; padding-top: 10px;">
-                <input class="btn btn-success" type="button" name="Search" value="Search">
-              </div>
-            </form>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="wrapper" style="margin-right: 125px;margin-top: 100px;">
-        <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-lg btn-success pull-right" type="button" name="createpost" value="Create Post" >
-        <div class="container">
-          <div id="modal-wrapper" class="modal">
-            <form class="modal-content animate" action="/create" method="POST">
-              <h1 style="margin-bottom: 35px;padding-top: 20px;">Create Post</h1>
-              <div class="imgcontainer">
-                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
-              </div>
-              <div class="form-group formcon">
-                <label>Job Position</label>
-                <input type="text" placeholder="Type Position" class="form-control"  id="seljob" name="seljob" style="margin-bottom:10px; font-size:18px;">
-              </div>
-              <hr>
-              <div class="form-group formcon">
-                <label>Select Industry:</label>
-                <select class="form-control formstyle" id="selind" name="selind">
-                  <option>--Select industry--</option>
+              <li>CV Uploaded Date<br>
+                <input type="date" style="width: 250px; font-size: 17px;"></li>
+                <li>Industry<select class="form-control formstyle" id="selind" name="selind" style="
+    width: 250px;
+">
+                  <option>--Select Industry--</option>
                   <option>Academic</option>
                   <option>Academic & Salon</option>
                   <option>Advertising</option>
@@ -173,6 +161,110 @@
                   <option>Tea</option>
                   <option>Telecommunication</option>
                   <option>Trainee</option>
+                </select></li>
+              <li>Position<select class="form-control formstyle" id="selind" name="selind" style="
+    width: 250px;
+">
+                  <option>--Select Position--</option>
+                </select></li>
+              <div class="pull-right" style="padding-right: 23px; padding-top: 10px;">
+                <input class="btn btn-success" type="button" name="Search" value="Search">
+              </div>
+            </form>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="wrapper" style="margin-right: 125px;margin-top: 100px;">
+        <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-lg btn-success pull-right" type="button" name="createpost" value="Create Post" >
+        <div class="container">
+          <div id="modal-wrapper" class="modal">
+            <form class="modal-content animate" action="/create" method="POST">
+              <h1 style="margin-bottom: 35px;padding-top: 20px;">Create Post</h1>
+              <div class="imgcontainer">
+                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
+              </div>
+              <div class="form-group formcon">
+                <label>Job Position</label>
+                <input type="text" placeholder="Type Position" class="form-control"  id="seljob" name="seljob" style="margin-bottom:10px; font-size:18px;">
+              </div>
+              <hr>
+              <div class="form-group formcon">
+                <label>Select Industry:</label>
+                <select class="form-control formstyle" id="selind" name="selind">
+                  <option>--Select Industry--</option>
+                  <option>Academic</option>
+                  <option>Academic & Salon</option>
+                  <option>Advertising</option>
+                  <option>Air Cargo/ Freight</option>
+                  <option>Airline</option>
+                  <option>Apparel</option>
+                  <option>Automobile</option>
+                  <option>Bank</option>
+                  <option>Beverages</option>
+                  <option>Blueship</option>
+                  <option>BPO</option>
+                  <option>Business Analyst</option>
+                  <option>Call centre</option>
+                  <option>Communications</option>
+                  <option>Computer Peripherals</option>
+                  <option>conglomerate</option>
+                  <option>Constructions</option>
+                  <option>Consulting</option>
+                  <option>Councelling</option>
+                  <option>Customer Service</option>
+                  <option>Diamond</option>
+                  <option>Digital Marketing</option>
+                  <option>Embassy</option>
+                  <option>Energy</option>
+                  <option>Engineering</option>
+                  <option>Entertaintment</option>
+                  <option>Exports</option>
+                  <option>Finance</option>
+                  <option>Fishery</option>
+                  <option>FMCG</option>
+                  <option>FMGC</option>
+                  <option>Food</option>
+                  <option>Forces</option>
+                  <option>Hardware</option>
+                  <option>Healthcare</option>
+                  <option>Herbal Cosmetic</option>
+                  <option>Hospital</option>
+                  <option>Hotel</option>
+                  <option>Hydro power</option>
+                  <option>Immigration</option>
+                  <option>Industry</option>
+                  <option>Indutsry info</option>
+                  <option>Insurance</option>
+                  <option>Investment</option>
+                  <option>IT & Electronics</option>
+                  <option>Logistic</option>
+                  <option>Manufacturing</option>
+                  <option>Manufacturing - Bevarages</option>
+                  <option>Manufacturing - Biscuit</option>
+                  <option>Manufacturing - food</option>
+                  <option>Manufacturing - Food/cable</option>
+                  <option>Manufacturing - Paints</option>
+                  <option>Manufacturing - Porcelain</option>
+                  <option>Manufacturing - Tyre</option>
+                  <option>Manufacturing - Tyre, apparel</option>
+                  <option>Manufacturing - Tyre, Biscuits</option>
+                  <option>Manufacturing & Waste Mgt</option>
+                  <option>Maritime</option>
+                  <option>Media</option>
+                  <option>Multinational</option>
+                  <option>Online markering</option>
+                  <option>Recruitment</option>
+                  <option>Renewable Energy</option>
+                  <option>Retail & Wholesale</option>
+                  <option>Security Services</option>
+                  <option>Shipping</option>
+                  <option>Tea</option>
+                  <option>Telecommunication</option>
+                  <option>Trainee</option>
+                </select></li>
                 </select>
               </div>
               <hr>
@@ -199,7 +291,7 @@
                       <form class="input-append input-group">
                         <div id="field">
                           <input autocomplete="off" class="form-control" id="field1" name="prof1" type="text" data-items="8"/>
-                          <button id="b1" class="btn btn-success add-more" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></button>
+                          <button id="b1" class="btn btn-success add-more" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
                         </div>
                       </form>
                     </div>
@@ -281,6 +373,16 @@
         </div>
       </div>
   </div>
+
+<footer style="position: absolute !important;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
+        <p>© 2018 <a href="#">Kent Ridge</a>. All rights reserved.</p>
+      </div><!-- end columns -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</footer>
 
   <script type="text/javascript">
       var modal = document.getElementById('modal-wrapper');

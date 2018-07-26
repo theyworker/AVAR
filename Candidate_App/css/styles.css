@@ -1,4 +1,15 @@
 
+*
+{
+    margin: 0 ;
+    padding: 0;
+}
+html,body
+{
+    height: 100% !important;
+    background-color: silver !important;
+}
+
 /* ------ featurette */
 .featurette {
     display: table;
@@ -68,10 +79,15 @@
     border: 1px solid #888;
     border-radius: 10px !important;
     width: 600px;
-    height: 700px; 
+    height: 850px;
 	padding-bottom: 30px;
     overflow: auto;
 }
+.createRec
+{
+    height: 550px !important;
+}
+
 .close {
     position: absolute;
     right: 8px;
@@ -185,10 +201,11 @@
 
 .tstyle,tr
 {
-    border: solid 2px #FF7800;
+    border: solid 2px #FF9400;
     border-left: 0px;
     border-right: 0px;
-    border-bottom: 0px;
+    border-bottom: 0px ;
+
 }
 th
 {
@@ -251,5 +268,86 @@ hr
     border-width: 1px !important;
     border-color: #DDDDDD !important;
     width: 95%;
-} 
+}
+
+
+
+
+/* Style the search box */
+#mySearch {
+    width: 100%;
+    font-size: 18px;
+    padding: 11px;
+    border:1px solid #ddd;
+}
+
+/* Style the navigation menu */
+#myMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the navigation links */
+#myMenu li a {
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+}
+
+#myMenu li a:hover {
+    background-color: #eee;
+}
+
+footer
+{
+    background-color: #233982;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p
+{
+    padding-top: 15px;
+    color: white;
+    font-size: 15px;
+}
+
+footer
+{
+    background-color: #233982;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+.advancesearch li
+{
+    font-size: 14px;
+
+}
+
+.dropdownlist
+{
+    width: 340px !important;
+    height: 380px !important;
+    border-radius: 8px !important;
+    background-color: #D7D6DC !important;
+}
+
+.logincon
+{
+    margin-top:10%;
+    border-radius: 6px;
+    height: 400px;
+}
+
    

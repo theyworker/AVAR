@@ -9,12 +9,14 @@
 </head>
 
 <body>
-    <nav class="navbar navhead">
-      <div class="container">
+<header>
+  <nav class="navbar navhead">
+    <div class="col-md-10" style="margin-left: 152px;">
+      <div class="container ">
         <div class="navbar-header">
           <img src="images/site_logo.jpg" alt="<KR Logo>">
         </div>
-        <div>
+        <div >
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="#">How it works?</a></li>
@@ -22,8 +24,17 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
+
       </div>
-    </nav>
+    </div>
+    <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
+      <div class="pull-right">
+        <input class="btn btn-lg btn-success " type="submit" name="logout" value="Logout">
+      </div>
+    </div>
+  </nav>
+</header>
+
 
     <div class="container" align="center" style="background-color:#282923;height: 850px;border-radius: 10px;">
       <div class="featurette" style="height: 110px;">
@@ -46,15 +57,115 @@
           <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">Advance Search
             <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu" style="width: 340px;height: 300px;border-radius: 8px; background-color: #D7D6DC">
-            <form style="padding-left: 20px;">
-              <li class="dropdown-header">Find Who Applied</li>
-              <li>Experience</li>
-              <li>Experience</li>
-              <li>Experience</li>
-                <div class="pull-right" style="padding-right: 23px; padding-top: 10px;">
-                  <input class="btn btn-success" type="button" name="Search" value="Search">
-                </div>
+          <ul class="dropdown-menu dropdownlist">
+            <form style="padding-left: 40px;" action="/action_page.php">
+              <li class="dropdown-header" style="padding-left: 80px;font-size: 15px;font-weight: bold;">Find Who Applied</li>
+
+              <li>Experience <select class="form-control formstyle" style="width: 250px;">
+                <option>--Select Experience--</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+              </select>
+              </li>
+              <li>Education<select class="form-control formstyle" style="width: 250px;">
+                <option>--Select Education--</option>
+                <option>Certificate</option>
+                <option>Diploma</option>
+                <option>Higher Diploma</option>
+                <option>Bachelor</option>
+                <option>Master's Degree</option>
+                <option>phD</option>
+              </select></li>
+              <li>CV Uploaded Date<br>
+                <input type="date" style="width: 250px; font-size: 17px;"></li>
+              <li>Industry<select class="form-control formstyle" id="selind" name="selind" style="
+    width: 250px;
+">
+                <option>--Select Industry--</option>
+                <option>Academic</option>
+                <option>Academic & Salon</option>
+                <option>Advertising</option>
+                <option>Air Cargo/ Freight</option>
+                <option>Airline</option>
+                <option>Apparel</option>
+                <option>Automobile</option>
+                <option>Bank</option>
+                <option>Beverages</option>
+                <option>Blueship</option>
+                <option>BPO</option>
+                <option>Business Analyst</option>
+                <option>Call centre</option>
+                <option>Communications</option>
+                <option>Computer Peripherals</option>
+                <option>conglomerate</option>
+                <option>Constructions</option>
+                <option>Consulting</option>
+                <option>Councelling</option>
+                <option>Customer Service</option>
+                <option>Diamond</option>
+                <option>Digital Marketing</option>
+                <option>Embassy</option>
+                <option>Energy</option>
+                <option>Engineering</option>
+                <option>Entertaintment</option>
+                <option>Exports</option>
+                <option>Finance</option>
+                <option>Fishery</option>
+                <option>FMCG</option>
+                <option>FMGC</option>
+                <option>Food</option>
+                <option>Forces</option>
+                <option>Hardware</option>
+                <option>Healthcare</option>
+                <option>Herbal Cosmetic</option>
+                <option>Hospital</option>
+                <option>Hotel</option>
+                <option>Hydro power</option>
+                <option>Immigration</option>
+                <option>Industry</option>
+                <option>Indutsry info</option>
+                <option>Insurance</option>
+                <option>Investment</option>
+                <option>IT & Electronics</option>
+                <option>Logistic</option>
+                <option>Manufacturing</option>
+                <option>Manufacturing - Bevarages</option>
+                <option>Manufacturing - Biscuit</option>
+                <option>Manufacturing - food</option>
+                <option>Manufacturing - Food/cable</option>
+                <option>Manufacturing - Paints</option>
+                <option>Manufacturing - Porcelain</option>
+                <option>Manufacturing - Tyre</option>
+                <option>Manufacturing - Tyre, apparel</option>
+                <option>Manufacturing - Tyre, Biscuits</option>
+                <option>Manufacturing & Waste Mgt</option>
+                <option>Maritime</option>
+                <option>Media</option>
+                <option>Multinational</option>
+                <option>Online markering</option>
+                <option>Recruitment</option>
+                <option>Renewable Energy</option>
+                <option>Retail & Wholesale</option>
+                <option>Security Services</option>
+                <option>Shipping</option>
+                <option>Tea</option>
+                <option>Telecommunication</option>
+                <option>Trainee</option>
+              </select></li>
+              <li>Position<select class="form-control formstyle" id="selind" name="selind" style="
+    width: 250px;
+">
+                <option>--Select Position--</option>
+              </select></li>
+              <div class="pull-right" style="padding-right: 23px; padding-top: 20px;">
+                <input class="btn btn-success" type="button" name="Search" value="Search">
+              </div>
             </form>
           </ul>
         </div>
@@ -64,22 +175,23 @@
     <hr style="border-top: 3px solid #FFFF;border-radius: 4px; margin-top: 80px;margin-bottom: 100px;">
 
     <div class="container" style="margin-top: 25px; padding-left: 100px; padding-right: 100px;">
-      <h1 class="col-md-5" style="color: white; margin:0px;">Manage User</h1>
+      <h1 class="col-md-5" style="color: white; margin:0px;">Manage Recruiters</h1>
         <div class="content">
           <div class="container-fluid"> 
             <div class="row">
               <div class="col-md-12" style="padding-left:25px; padding-right:25px;">
-                <div class="card card-plain" style="color: #FF7800;">
+                <div class="card card-plain" style="color: #FF9400;">
                   <div class="card-header card-header-primary">
-                        <h2 class="card-title mt-0"> Candidates</h2>
+                    <br><br>
+                        <!--<h2 class="card-title mt-0">Recruiters</h2>-->
                   
                       </div>
                       <div class="card-body">
                         <div class="table-responsive" >
                           <table class="table table-hover tstyle" rows="4">
-                            <thead>
+                            <thead style="border-top: #DDDDDD;">
                               <th>ID</th>
-                              <th>Candidate Name</th>
+                              <th>Recruiter Name</th>
                               <th>Username</th>
                               <th>Password</th>
                               <th>Status</th>
@@ -90,42 +202,42 @@
                                 <td>Dakota Rice</td>
                                 <td>Niger</td>
                                 <td>Oud-Turnhout</td>
-                                <td>$36,738</td>
+                                <td>Active</td>
                               </tr>
                               <tr>
                                 <td>2</td>
                                 <td>Minerva Hooper</td>
                                 <td>Curaçao</td>
                                 <td>Sinaai-Waas</td>
-                                <td>$23,789</td>
+                                <td>Deactive</td>
                               </tr>
                               <tr>
                                 <td>3</td>
                                 <td>Sage Rodriguez</td>
                                 <td>Netherlands</td>
                                 <td>Baileux</td>
-                                <td>$56,142</td>
+                                <td>Active</td>
                               </tr>
                               <tr>
                                 <td>4</td>
                                 <td>Philip Chaney</td>
                                 <td>Korea, South</td>
                                 <td>Overland Park</td>
-                                <td>$38,735</td>
+                                <td>Deactive</td>
                               </tr>
                               <tr>
                                 <td>5</td>
                                 <td>Doris Greene</td>
                                 <td>Malawi</td>
                                 <td>Feldkirchen in Kärnten</td>
-                                <td>$63,542</td>
+                                <td>Active</td>
                               </tr>
                               <tr>
                                 <td>6</td>
                                 <td>Mason Porter</td>
                                 <td>Chile</td>
                                 <td>Gloucester</td>
-                                <td>$78,615</td>
+                                <td>Active</td>
                               </tr>
                             </tbody>
                           </table>
@@ -143,8 +255,8 @@
 
     <div class="container">
       <div id="modal-wrapper" class="modal">
-        <form class="modal-content animate" action="">
-          <h1 style="margin-bottom: 20px;padding-top: 20px;">Create Candidate</h1>
+        <form class="modal-content animate createRec" action="">
+          <h1 style="margin-bottom: 20px;padding-top: 20px;">Create Recruiter</h1>
             <div class="imgcontainer">
               <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
             </div>
@@ -173,6 +285,7 @@
     </div>
           </div>
         </div>
+    </div>
     </div>
   <div class="container" style="padding-top: 45px;">
     <h1 style="padding-right: 1000px;">Statistics</h1>
@@ -239,6 +352,16 @@
           </div>
         </div>
 </div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
+        <p>© 2018 <a href="#">Kent Ridge</a>. All rights reserved.</p>
+      </div><!-- end columns -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</footer>
 
   <script type="text/javascript">
     var modal = document.getElementById('modal-wrapper');

@@ -1,3 +1,4 @@
+
 *
 {
     margin: 0 ;
@@ -8,6 +9,7 @@ html,body
     height: 100% !important;
     background-color: silver !important;
 }
+
 /* ------ featurette */
 .featurette {
     display: table;
@@ -85,6 +87,7 @@ html,body
 {
     height: 550px !important;
 }
+
 .close {
     position: absolute;
     right: 8px;
@@ -202,6 +205,7 @@ html,body
     border-left: 0px;
     border-right: 0px;
     border-bottom: 0px ;
+
 }
 th
 {
@@ -346,4 +350,4 @@ footer
     height: 400px;
 }
 
-
+   

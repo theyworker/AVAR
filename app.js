@@ -1,14 +1,19 @@
-var app = require('express')()
+const express = require("express");
+var app = express();
 const mysql = require('mysql')
 var path = require('path')
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'Web_App')));
 var fileupload = require('express-fileupload')
 app.use(fileupload())
 
+
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, '/Candidate_App/views'))
+
+
 
 const con = mysql.createConnection({
   host: 'localhost',
@@ -29,6 +34,25 @@ function retrievejoblist () {
     };
   // console.log(dbjob);
   })
+};
+
+var validation = false
+function login (user, pass, callback) {
+  con.query('SELECT * FROM credentials', (err, rows) => {
+    if (err) throw err
+
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].username == user && rows[i].password == pass) {
+        console.log('Login Success!')
+        validation = true
+        return
+      }
+      else {
+        validation = false
+      }
+    };
+  })
+  callback();
 };
 
 // Initial connect to db
@@ -62,7 +86,7 @@ app.get('/cantfind.html', function (req, res) {
 })
 
 app.get('/rc', function (req, res) {
-  res.sendFile(path.join(__dirname, '/Web_App/dashboard.html'))
+  res.sendFile(path.join(__dirname, '/Web_App/login.html'))
 })
 
 /* var jobs = {
@@ -142,12 +166,35 @@ app.post('/create', function (req, res) {
   res.write('That was a mouthful to print!\n')
   console.log('Job created! ' + lvl + ' ' + job + ' in ' + industry + '!')
 
-  var sql = 'INSERT INTO joblist (job, industry, level, description)' + 
+  var sql = 'INSERT INTO joblist (job, industry, level, description)' +
   "VALUES ('" + job + "','" + industry + "','" + lvl + "','" + desc + "')"
   con.query(sql, function (err, result) {
     if (err) throw err
     console.log('Inserted 1 job')
     res.end()
+  })
+})
+
+app.post('/login', function (req, res) {
+  var user1 = req.body.username
+  var pass1 = req.body.password
+
+  /*if (login(user1, pass1) == true){
+    console.log('Proceeding to send dashboard html')
+    //res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
+  }
+  else {
+    console.log('Sorry failed. Too bad. So sad')
+    //res.write('Sorry, you have entered an incorrect username or password!')
+  }*/
+  login(user1, pass1, function () {
+    if (validation == true){
+      console.log('Proceeding to send dashboard html')
+      res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
+    }
+    else {
+      console.log('Sorry failed. Too bad. So sad')
+    }
   })
 })
 

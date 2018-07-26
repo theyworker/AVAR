@@ -264,7 +264,66 @@ hr
     border-width: 1px !important;
     border-color: #DDDDDD !important;
     width: 95%;
-} 
+}
+
+
+
+
+/* Style the search box */
+#mySearch {
+    width: 100%;
+    font-size: 18px;
+    padding: 11px;
+    border:1px solid #ddd;
+}
+
+/* Style the navigation menu */
+#myMenu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the navigation links */
+#myMenu li a {
+    background-color: #f6f6f6;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block
+}
+
+#myMenu li a:hover {
+    background-color: #eee;
+}
+
+footer
+{
+    background-color: #233982;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p
+{
+    padding-top: 15px;
+    color: white;
+    font-size: 15px;
+}
+
+footer
+{
+    background-color: #233982;
+    height: 50px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
 
 .advancesearch li
 {
@@ -287,19 +346,4 @@ hr
     height: 400px;
 }
 
-footer
-{
-    background-color: #233982;
-    height: 50px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p
-{
-    padding-top: 15px;
-    color: white;
-    font-size: 15px;
-}
 

@@ -201,7 +201,22 @@ app.post('/login', function (req, res) {
     }
   }
   });
+})
 
+app.post('/search', function (req, res) {
+  var stuff = req.body.searchstuff
+
+con.query('SELECT * FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
+    if (error) {
+      console.log("error ocurred",error);
+      res.send({
+      "code":400,
+      "failed":"error ocurred"
+      })
+    }else{
+      res.send(results)
+    }
+  })
 })
 
 app.listen(3000, function () {

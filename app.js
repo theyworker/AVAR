@@ -36,25 +36,6 @@ function retrievejoblist () {
   })
 };
 
-var validation = false
-function login (user, pass, callback) {
-  con.query('SELECT * FROM credentials', (err, rows) => {
-    if (err) throw err
-
-    for (var i = 0; i < rows.length; i++) {
-      if (rows[i].username == user && rows[i].password == pass) {
-        console.log('Login Success!')
-        validation = true
-        return
-      }
-      else {
-        validation = false
-      }
-    };
-  })
-  callback();
-};
-
 // Initial connect to db
 con.connect((err) => {
   if (err) {
@@ -87,6 +68,10 @@ app.get('/cantfind.html', function (req, res) {
 
 app.get('/rc', function (req, res) {
   res.sendFile(path.join(__dirname, '/Web_App/login.html'))
+})
+
+app.get('/test', function (req, res) {
+  res.sendFile(path.join(__dirname, '/Web_App/managerDashboard.html'))
 })
 
 /* var jobs = {
@@ -178,16 +163,8 @@ app.post('/create', function (req, res) {
 app.post('/login', function (req, res) {
   var user1 = req.body.username
   var pass1 = req.body.password
-
-  /*if (login(user1, pass1) == true){
-    console.log('Proceeding to send dashboard html')
-    //res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
-  }
-  else {
-    console.log('Sorry failed. Too bad. So sad')
-    //res.write('Sorry, you have entered an incorrect username or password!')
-  }*/
-  login(user1, pass1, function () {
+	
+  /*login(user1, pass1, function () {
     if (validation == true){
       console.log('Proceeding to send dashboard html')
       res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
@@ -195,7 +172,85 @@ app.post('/login', function (req, res) {
     else {
       console.log('Sorry failed. Too bad. So sad')
     }
+  })*/
+  con.query('SELECT * FROM credentials WHERE username = ?',[user1], function (error, results, fields) {
+  if (error) {
+    // console.log("error ocurred",error);
+    res.send({
+      "code":400,
+      "failed":"error ocurred"
+    })
+  }else{
+    // console.log('The solution is: ', results);
+    if(results.length >0){
+      if(results[0].password == pass1){
+        /*res.send({
+          "code":200,
+          "success":"login sucessfull"
+            });*/
+        res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
+      }
+      else{
+        res.send({
+          "code":204,
+          "success":"Username and password does not match"
+            });
+      }
+    }
+    else{
+      res.send({
+        "code":204,
+        "success":"User does not exist"
+          });
+    }
+  }
+  });
+})
+
+app.post('/search', function (req, res) {
+  var stuff = req.body.searchstuff
+
+con.query('SELECT * FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
+    if (error) {
+      console.log("error ocurred",error);
+      res.send({
+      "code":400,
+      "failed":"error ocurred"
+      })
+    }else{
+      res.send(results)
+    }
   })
+})
+
+app.post('/addacc', function (req, res) {
+  var username = req.body.username
+  var recruitername = req.body.recruitername
+  var password = req.body.password
+
+con.query('INSERT INTO credentials (username, password, recruitername) VALUES (?,?,?)',[username,password,recruitername], function (error, results) {
+  if (error) {
+    console.log("error ocurred",error);
+    res.send({
+      "code":400,
+      "failed":"error ocurred"
+  })
+  }else{
+    if (results.affectedRows > 0){
+      console.log('Inserted row')
+      res.send({
+          "code":200,
+          "success":"Saved new row"
+            });
+    }else {
+      console.log('Failed to insert row')
+      res.send({
+          "code":204,
+          "failed":"Couldn't save row"
+            });
+    }
+  }
+})
 })
 
 app.listen(3000, function () {

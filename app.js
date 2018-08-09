@@ -70,6 +70,10 @@ app.get('/rc', function (req, res) {
   res.sendFile(path.join(__dirname, '/Web_App/login.html'))
 })
 
+app.get('/test', function (req, res) {
+  res.sendFile(path.join(__dirname, '/Web_App/managerDashboard.html'))
+})
+
 /* var jobs = {
  1:'HR Service Executive',
  2:'Assistant General Manager - Sales',
@@ -217,6 +221,36 @@ con.query('SELECT * FROM candidatetest WHERE CONCAT(fname, email, address, quali
       res.send(results)
     }
   })
+})
+
+app.post('/addacc', function (req, res) {
+  var username = req.body.username
+  var recruitername = req.body.recruitername
+  var password = req.body.password
+
+con.query('INSERT INTO credentials (username, password, recruitername) VALUES (?,?,?)',[username,password,recruitername], function (error, results) {
+  if (error) {
+    console.log("error ocurred",error);
+    res.send({
+      "code":400,
+      "failed":"error ocurred"
+  })
+  }else{
+    if (results.affectedRows > 0){
+      console.log('Inserted row')
+      res.send({
+          "code":200,
+          "success":"Saved new row"
+            });
+    }else {
+      console.log('Failed to insert row')
+      res.send({
+          "code":204,
+          "failed":"Couldn't save row"
+            });
+    }
+  }
+})
 })
 
 app.listen(3000, function () {

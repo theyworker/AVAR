@@ -55,7 +55,7 @@ app.get('/backup', function (req, res) {
 // Renders home page template with joblist from DB
 app.get('/', function (req, res) {
   retrievejoblist()
-  res.render('home', {job: dbjob})
+  res.render('index', {job: dbjob})
 })
 
 app.get('/form1.html', function (req, res) {

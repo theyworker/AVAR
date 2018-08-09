@@ -5,7 +5,7 @@ var path = require('path')
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname, 'Web_App')));
+app.use(express.static(path.join(__dirname, 'Candidate_App')));
 var fileupload = require('express-fileupload')
 app.use(fileupload())
 

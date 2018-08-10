@@ -8,6 +8,7 @@ app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'Candidate_App')));
 var fileupload = require('express-fileupload')
 app.use(fileupload())
+var dateTime = require('node-datetime')
 
 
 app.set('view engine', 'ejs')
@@ -115,12 +116,16 @@ app.post('/submit', function (req, res) {
     }
   })
 
+  var dt = dateTime.create()
+  var formatted = dt.format('Y-m-d')
+  console.log(formatted)
+
   res.write('You sent the name "' + req.body.fname + '".\n')
   res.write('You sent the email "' + req.body.email + '".\n')
   console.log('This just in!!! ' + fname + ' and ' + email + ' and ' + dir)
 
-  var sql = 'INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo, cvdir, appliedjob)' +
-  "VALUES ('" + fname + "','" + email + "','" + tel + "','" + address + "','" + curemp + "','" + curind + "','" + quali + "','" + demo + "','" + dir + "','" + apply + "')"
+  var sql = 'INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo, cvdir, appliedjob, submitdate)' +
+  "VALUES ('" + fname + "','" + email + "','" + tel + "','" + address + "','" + curemp + "','" + curind + "','" + quali + "','" + demo + "','" + dir + "','" + apply + "','" + formatted + "')"
   con.query(sql, function (err, result) {
     if (err) throw err
     console.log('Inserted 1 record')
@@ -209,6 +214,26 @@ app.post('/login', function (req, res) {
 
 app.post('/search', function (req, res) {
   var stuff = req.body.searchstuff
+
+con.query('SELECT * FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
+    if (error) {
+      console.log("error ocurred",error);
+      res.send({
+      "code":400,
+      "failed":"error ocurred"
+      })
+    }else{
+      res.send(results)
+    }
+  })
+})
+
+app.post('/advsearch', function (req, res) {
+  var exp = req.body.exp
+  var edu = req.body.edu
+  var date = req.body.date
+  var ind = req.body.ind
+  var pos = req.body.pos
 
 con.query('SELECT * FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
     if (error) {

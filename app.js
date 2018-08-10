@@ -193,7 +193,8 @@ app.post('/login', function (req, res) {
           "code":200,
           "success":"login sucessfull"
             });*/
-        res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
+        //res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
+        res.render('dashboard')
       }
       else{
         res.send({
@@ -232,10 +233,11 @@ app.post('/advsearch', function (req, res) {
   var exp = req.body.exp
   var edu = req.body.edu
   var date = req.body.date
-  var ind = req.body.ind
-  var pos = req.body.pos
+  var ind = req.body.selind
+  //var pos = req.body.pos
 
-con.query('SELECT * FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
+  console.log(exp + edu + date + ind)
+con.query("SELECT * FROM candidatetest WHERE demo = ? AND quali = ? AND submitdate = ? AND curind = ?",[exp, edu, date, ind], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({

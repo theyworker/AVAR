@@ -63,8 +63,9 @@ app.get('/form1.html', function (req, res) {
   res.sendFile(path.join(__dirname, '/Candidate_App/form1.html'))
 })
 
-app.get('/cantfind.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '/Candidate_App/cantfind.html'))
+app.get('/cantfind', function (req, res) {
+  retrievejoblist()
+  res.render('cantfind', {job: dbjob})
 })
 
 app.get('/rc', function (req, res) {

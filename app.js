@@ -195,7 +195,52 @@ app.post('/login', function (req, res) {
           "success":"login sucessfull"
             });*/
         //res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
-        res.render('dashboard')
+        var cv = 0
+        var cvmonth = 0
+        var cvyear = 0
+        var available = 0
+
+        var datemonth = dateTime.create()
+        datemonth.offsetInDays(-31)
+        var formatted = datemonth.format('Y-m-d')
+        var dateyear = dateTime.create()
+        dateyear.offsetInDays(-365)
+        var formatted2 = dateyear.format('Y-m-d')
+
+        //Gets list of all total cvs
+        con.query('SELECT * FROM candidatetest', function (error, results) {
+          if (error) {
+            console.log("error occurred", error)
+          }
+          cv = results.length
+
+          //Gets list of all cvs in a month
+          con.query('SELECT * FROM candidatetest WHERE DATE(submitdate) >= ?',[formatted], function (error, results) {
+            if (error) {
+              console.log("error occurred", error)
+            }
+            cvmonth = results.length
+
+            //Gets list of all cvs in a year
+            con.query('SELECT * FROM candidatetest WHERE DATE(submitdate) >= ?',[formatted2], function (error, results) {
+              if (error) {
+                console.log("error occurred", error)
+              }
+              cvyear = results.length
+
+              //Gets list of all jobs
+              con.query('SELECT * FROM joblist', function (error, results) {
+                if (error) {
+                  console.log("error occurred", error)
+                }
+                available = results.length
+
+                //RENDERS THE RECRUTIER PAGE
+                res.render('dashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
+              })
+            })
+          })
+        })
       }
       else{
         res.send({

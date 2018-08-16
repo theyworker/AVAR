@@ -190,6 +190,7 @@ app.post('/login', function (req, res) {
     // console.log('The solution is: ', results);
     if(results.length >0){
       if(results[0].password == pass1){
+        var type = results[0].usertype
         /*res.send({
           "code":200,
           "success":"login sucessfull"
@@ -235,8 +236,20 @@ app.post('/login', function (req, res) {
                 }
                 available = results.length
 
-                //RENDERS THE RECRUTIER PAGE
-                res.render('dashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
+                if(type == 'rct'){
+                  //RENDERS THE RECRUTIER PAGE
+                  res.render('dashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available}) 
+                }
+                else if(type == 'mng'){
+                  //RENDERS THE MANAGER PAGE
+                  res.render('managerDashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
+                }
+                else{
+                  res.send({
+                  "code":401,
+                  "success":"This account is not valid"
+                  });
+                }
               })
             })
           })
@@ -301,7 +314,7 @@ app.post('/addacc', function (req, res) {
   var recruitername = req.body.recruitername
   var password = req.body.password
 
-con.query('INSERT INTO credentials (username, password, recruitername) VALUES (?,?,?)',[username,password,recruitername], function (error, results) {
+con.query('INSERT INTO credentials (username, password, recruitername, usertype) VALUES (?,?,?,"rct")',[username,password,recruitername], function (error, results) {
   if (error) {
     console.log("error ocurred",error);
     res.send({

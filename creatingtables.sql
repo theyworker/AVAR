@@ -30,6 +30,8 @@ CREATE TABLE `basictest`.`credentials` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) DEFAULT NULL,
   `recruitername` varchar(50) NOT NULL,
+  `usertype` varchar(50) NOT NULL,
   PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`) VALUES ('user','pass','Dave');
+INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('user','pass','Dave','rct');
+INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('manager','pass','Mave','mng');

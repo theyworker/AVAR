@@ -68,12 +68,24 @@ app.get('/backup', function (req, res) {
 // Renders home page template with joblist from DB
 app.get('/', function (req, res) {
   retrievejoblist()
-  res.render('index', {job: dbjob})
+  con.query('SELECT * FROM joblist WHERE hidden = false', function (error, results) {
+    if (error) {
+      console.log("error occurred", error)
+    }
+    
+    res.render('index', {job: results})
+  })
 })
 
 app.get('/index.html', function (req, res) {
   retrievejoblist()
-  res.render('index', {job: dbjob})
+  con.query('SELECT * FROM joblist WHERE hidden = false', function (error, results) {
+    if (error) {
+      console.log("error occurred", error)
+    }
+    
+    res.render('index', {job: results})
+  })
 })
 
 app.get('/form1.html', function (req, res) {

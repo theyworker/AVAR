@@ -51,10 +51,8 @@ con.connect((err) => {
 app.use(session({
   cookieName: 'session',
   secret: 'random_string_goes_here',
-  duration: 60 * 60 * 1000,
-  activeDuration: 10 * 60 * 1000,
-  httpOnly: true,
-  ephemeral: true
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000,
 }));
 
 // Redirects to pages depending on requested url
@@ -83,85 +81,18 @@ app.get('/rc', function (req, res) {
   res.sendFile(path.join(__dirname, '/Web_App/login.html'))
 })
 
-app.get('/logout', function (req, res) {
-  req.session.reset();
-  res.redirect('/rc');
+app.get('/test', function (req, res) {
+  res.sendFile(path.join(__dirname, '/Web_App/managerDashboard.html'))
 })
 
-
-app.get('/dashboard', function (req, res) {
-  if (req.session && req.session.user) { // Check if session exists
-    // lookup the user in the DB by pulling their email from the session
-    con.query('SELECT * FROM credentials WHERE username = ?',[req.session.user], function (error, results, fields) {
-    if (error) {
-      // console.log("error ocurred",error);
-      res.send({
-        "code":400,
-        "failed":"error ocurred"
-      })
-    }else{
-        if (results.length == 0) {
-          // if the user isn't found in the DB, reset the session info and
-          // redirect the user to the login page
-          req.session.reset();
-          res.redirect('/rc');
-        } else {
-          // render the dashboard page
-          var cv = 0
-          var cvmonth = 0
-          var cvyear = 0
-          var available = 0
-
-          var datemonth = dateTime.create()
-          datemonth.offsetInDays(-31)
-          var formatted = datemonth.format('Y-m-d')
-          var dateyear = dateTime.create()
-          dateyear.offsetInDays(-365)
-          var formatted2 = dateyear.format('Y-m-d')
-
-          //Gets list of all total cvs
-          con.query('SELECT * FROM candidatetest', function (error, results) {
-            if (error) {
-              console.log("error occurred", error)
-            }
-            cv = results.length
-
-            //Gets list of all cvs in a month
-            con.query('SELECT * FROM candidatetest WHERE DATE(submitdate) >= ?',[formatted], function (error, results) {
-              if (error) {
-                console.log("error occurred", error)
-              }
-              cvmonth = results.length
-
-              //Gets list of all cvs in a year
-              con.query('SELECT * FROM candidatetest WHERE DATE(submitdate) >= ?',[formatted2], function (error, results) {
-                if (error) {
-                  console.log("error occurred", error)
-                }
-                cvyear = results.length
-
-                //Gets list of all jobs
-                con.query('SELECT * FROM joblist', function (error, results) {
-                  if (error) {
-                    console.log("error occurred", error)
-                  }
-                  available = results.length
-                  
-                  //RENDERS THE RECRUTIER PAGE
-                  res.render('dashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
-                })
-              })
-            })
-          })
-        }
-      }
-    })//End of first con query
-  }
-    else {
-      res.redirect('/rc');
-    }
-})
-
+/* var jobs = {
+ 1:'HR Service Executive',
+ 2:'Assistant General Manager - Sales',
+ 3:'CEO-Retail',
+ 4:'Financial Controller',
+ 5:'Assistant Manager - HR & Admin',
+ 6:'Head of Business Process Re-Engineering'
+}; */
 
 // Gives customized template depending on job picked
 app.get('/form/:id', function (req, res) {
@@ -247,7 +178,16 @@ app.post('/create', function (req, res) {
 app.post('/login', function (req, res) {
   var user1 = req.body.username
   var pass1 = req.body.password
-  
+	
+  /*login(user1, pass1, function () {
+    if (validation == true){
+      console.log('Proceeding to send dashboard html')
+      res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
+    }
+    else {
+      console.log('Sorry failed. Too bad. So sad')
+    }
+  })*/
   con.query('SELECT * FROM credentials WHERE username = ?',[user1], function (error, results, fields) {
   if (error) {
     // console.log("error ocurred",error);
@@ -260,7 +200,11 @@ app.post('/login', function (req, res) {
     if(results.length >0){
       if(results[0].password == pass1){
         var type = results[0].usertype
-
+        /*res.send({
+          "code":200,
+          "success":"login sucessfull"
+            });*/
+        //res.sendFile(path.join(__dirname, 'Web_App/dashboard.html'))
         var cv = 0
         var cvmonth = 0
         var cvyear = 0
@@ -272,9 +216,6 @@ app.post('/login', function (req, res) {
         var dateyear = dateTime.create()
         dateyear.offsetInDays(-365)
         var formatted2 = dateyear.format('Y-m-d')
-
-        //Sets cookie with user
-        req.session.user = user1;
 
         //Gets list of all total cvs
         con.query('SELECT * FROM candidatetest', function (error, results) {
@@ -306,7 +247,7 @@ app.post('/login', function (req, res) {
 
                 if(type == 'rct'){
                   //RENDERS THE RECRUTIER PAGE
-                  res.redirect('/dashboard') 
+                  res.render('dashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available}) 
                 }
                 else if(type == 'mng'){
                   //RENDERS THE MANAGER PAGE
@@ -324,7 +265,6 @@ app.post('/login', function (req, res) {
         })
       }
       else{
-        req.session.reset();
         res.send({
           "code":204,
           "success":"Username and password does not match"
@@ -332,7 +272,6 @@ app.post('/login', function (req, res) {
       }
     }
     else{
-      req.session.reset();
       res.send({
         "code":204,
         "success":"User does not exist"

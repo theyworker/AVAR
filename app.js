@@ -84,15 +84,23 @@ app.get('/rc', function (req, res) {
 })
 
 app.get('/logout', function (req, res) {
-  req.session.reset();
-  res.redirect('/rc');
+
+  var curtime = dateTime.create()
+
+  con.query('UPDATE credentials SET timeon = ? WHERE username = ?', [Math.round((curtime.now() - req.session.time) / 60000), req.session.user], function (error, results, fields)  {
+    if (error) {
+      console.log("error occured", error)
+    }else{
+      req.session.reset();
+      res.redirect('/rc');
+    }
+  })
 })
 
 
 app.get('/dashboard', function (req, res) {
   if (req.session && req.session.user) { // Check if session exists
     // lookup the user in the DB by pulling their email from the session
-    console.log(req.session)
     con.query('SELECT * FROM credentials WHERE username = ?',[req.session.user], function (error, results, fields) {
     if (error) {
       // console.log("error ocurred",error);

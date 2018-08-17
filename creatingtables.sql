@@ -39,3 +39,4 @@ INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`u
 INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('manager','pass','Mave','mng');
 
 ALTER TABLE `basictest`.`credentials` ADD `lastlogin` DATETIME NULL AFTER `usertype`;
+ALTER TABLE `basictest`.`credentials` ADD `timeon` INT(50) NULL DEFAULT '0' AFTER `lastlogin`; 

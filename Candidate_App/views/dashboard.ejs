@@ -65,7 +65,7 @@
           <img src="images/site_logo.jpg" style="padding-top: 18px;">
           <nav role="navigation">
             <ul>
-              <li><a href="products.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="guide.html">How it works?</a></li>
               <li><a href="faq.html">FAQ</a></li>
               <li><a href="about.html">Contact</a></li>
@@ -81,7 +81,8 @@
     <div class="col-md-1" style="padding-left: 180px;padding-top: 8px;">
       <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
         <div class="pull-right">
-          <input class="btn btn-success" style="font-size: 19px;" type="submit" name="logout" value="Logout">
+          <form action="/logout" method="get" id="form1"></form>
+          <input class="btn btn-success" style="font-size: 19px;" type="submit" name="logout" value="Logout" form="form1">
         </div>
       </div>
     </div>

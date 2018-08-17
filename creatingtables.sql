@@ -17,6 +17,8 @@ CREATE TABLE `basictest`.`candidatetest` (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
+ALTER TABLE `candidatetest` ADD `linkedinurl` VARCHAR(200) NULL AFTER `submitdate`, ADD `salaryrange` VARCHAR(50) NULL AFTER `linkedinurl`; 
+
 CREATE TABLE `basictest`.`joblist` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `job` varchar(50) NOT NULL,
   `industry` varchar(50) DEFAULT NULL,

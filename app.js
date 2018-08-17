@@ -50,7 +50,7 @@ con.connect((err) => {
 //Session Handler Middleware
 app.use(session({
   cookieName: 'session',
-  secret: 'random_string_goes_here',
+  secret: guid(),
   duration: 60 * 60 * 1000,
   activeDuration: 10 * 60 * 1000,
   httpOnly: true,
@@ -92,6 +92,7 @@ app.get('/logout', function (req, res) {
 app.get('/dashboard', function (req, res) {
   if (req.session && req.session.user) { // Check if session exists
     // lookup the user in the DB by pulling their email from the session
+    console.log(req.session)
     con.query('SELECT * FROM credentials WHERE username = ?',[req.session.user], function (error, results, fields) {
     if (error) {
       // console.log("error ocurred",error);
@@ -179,6 +180,8 @@ app.post('/submit', function (req, res) {
   var quali = req.body.quali
   var demo = req.body.demo
   var apply = req.body.applied
+  var linkedin = req.body.Lurl
+  var range = req.body.range
 
   var cv = req.files.cvfile
 
@@ -203,8 +206,8 @@ app.post('/submit', function (req, res) {
   res.write('You sent the email "' + req.body.email + '".\n')
   console.log('This just in!!! ' + fname + ' and ' + email + ' and ' + dir)
 
-  var sql = 'INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo, cvdir, appliedjob, submitdate)' +
-  "VALUES ('" + fname + "','" + email + "','" + tel + "','" + address + "','" + curemp + "','" + curind + "','" + quali + "','" + demo + "','" + dir + "','" + apply + "','" + formatted + "')"
+  var sql = 'INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo, cvdir, appliedjob, submitdate, linkedinurl, salaryrange)' +
+  "VALUES ('" + fname + "','" + email + "','" + tel + "','" + address + "','" + curemp + "','" + curind + "','" + quali + "','" + demo + "','" + dir + "','" + apply + "','" + formatted + "','" + linkedin + "','" + range + "')"
   con.query(sql, function (err, result) {
     if (err) throw err
     console.log('Inserted 1 record')
@@ -278,6 +281,7 @@ app.post('/login', function (req, res) {
 
         //Sets cookie with user
         req.session.user = user1;
+        req.session.time = currenttime.now()
 
         //Gets list of all total cvs
         con.query('SELECT * FROM candidatetest', function (error, results) {

@@ -1,328 +1,366 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js lt-ie9 lt-ie8 lt-ie7">
+<html class="no-js lt-ie9 lt-ie8">
+<html class="no-js lt-ie9">
+<html class="no-js">
 <head>
- <title>Automated Value Added Recruiting</title>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="stylesheet" type="text/css" href="css/styles.css"/>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="images/fevicon.jpg" type="image/x-icon">
+  <title>Kent Ridge - Automated Value Added Recruiting </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
+  <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+  <meta name="author" content="FreeHTML5.co" />
+
+
+
+  <!-- Facebook and Twitter integration -->
+  <meta property="og:title" content=""/>
+  <meta property="og:image" content=""/>
+  <meta property="og:url" content=""/>
+  <meta property="og:site_name" content=""/>
+  <meta property="og:description" content=""/>
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:card" content="" />
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'> -->
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="css/icomoon.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Flexslider  -->
+  <link rel="stylesheet" href="css/flexslider.css">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Modernizr JS -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <!-- FOR IE9 below -->
+  <!--[if lt IE 9]>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
-
 <body>
-<header>
-  <nav class="navbar navhead">
-    <div class="col-md-10" style="margin-left: 152px;">
-      <div class="container ">
-        <div class="navbar-header">
-          <img src="images/site_logo.jpg" alt="<KR Logo>">
-        </div>
-        <div >
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="#">How it works?</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
+
+
+<div id="fh5co-page">
+  <header id="fh5co-header" role="banner" style="background-color: #233982;margin-top: 0;">
+    <div class="col-md-8" style="margin-left: 318px;">
+      <div class="container">
+        <div class="header-inner">
+          <img src="images/site_logo.jpg" style="padding-top: 18px;">
+          <nav role="navigation">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="guide.html">How it works?</a></li>
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="about.html">Contact</a></li>
+            </ul>
+
+
+          </nav>
+
         </div>
 
       </div>
     </div>
-    <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
-      <div class="pull-right">
-        <form action="/logout" method="get" id="form1"></form>
-        <input class="btn btn-lg btn-success " type="submit" name="logout" value="Logout" form="form1">
+    <div class="col-md-1" style="padding-left: 180px;padding-top: 8px;">
+      <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
+        <div class="pull-right">
+          <form action="/logout" method="get" id="form1"></form>
+          <input class="btn btn-success" style="font-size: 19px;" type="submit" name="logout" value="Logout" form="form1">
+        </div>
       </div>
     </div>
-  </nav>
-</header>
 
 
-    <div class="container" align="center" style="background-color:#282923;height: 850px;border-radius: 10px;">
-      <div class="featurette" style="height: 110px;">
-        <div class="featurette-inner text-center">
-          <form role="form" class="search has-button" style="padding-bottom: 0;">
-            <div class="form-group">
-                <input type="search" placeholder="search" class="form-control form-control-lg" style="font-size:22px;">
-                <button class="btn btn-lg btn-success" type="submit">Search</button>
+  </header>
+
+  <section id="fh5co-hero" class="js-fullheight" style="background-color: silver !important;">
+
+    <div class="flexslider js-fullheight" style="background-color: silver !important;">
+
+      <div class="container" style="padding-top: 120px;">
+
+        <div class="container" align="center" style="background-color:#282923;height: 850px;border-radius: 10px;">
+          <div class="featurette" style="height: 110px;">
+            <div class="featurette-inner text-center">
+              <form role="form" class="search has-button" style="padding-bottom: 0;" action="/search" method="POST">
+                <div class="form-group">
+                  <input type="search" placeholder="search" class="form-control form-control-lg" style="font-size:22px;width: 520px; background-color: white;" name="searchstuff" id="searchstuff">
+                  <button style="margin-left: 20px;padding-bottom: 5px;" class="btn btn-success" type="submit">Search</button>
+                </div>
+                <!-- /form-group -->
+              </form>
+              <!-- /.max-width on this form -->
             </div>
-          <!-- /form-group -->
-          </form>
-        <!-- /.max-width on this form -->    
-        </div>
-      <!-- /.featurette-inner (display:table-cell) -->   
-      </div>
+            <!-- /.featurette-inner (display:table-cell) -->
+          </div>
 
-    <div class="container">
-      <div class="wrapper" style="padding-right: 30px;">
-        <div class="btn-group dropdown">
-          <button class="btn btn-lg btn-success dropdown-toggle" type="button" data-toggle="dropdown">Advance Search
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu dropdownlist">
-            <form style="padding-left: 40px;" action="/action_page.php">
-              <li class="dropdown-header" style="padding-left: 80px;font-size: 15px;font-weight: bold;">Find Who Applied</li>
+          <div class="container">
+            <div class="wrapper" style="padding-right: 30px;">
+              <div class="btn-group dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Advance Search
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdownlist">
+                  <form style="padding-left: 40px;" action="/advsearch" method="POST">
+                    <li class="dropdown-header" style="padding-left: 80px;font-size: 15px;font-weight: bold;">Find Who Applied</li>
 
-              <li>Experience <select class="form-control formstyle" style="width: 250px;">
-                <option>--Select Experience--</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-              </select>
-              </li>
-              <li>Education<select class="form-control formstyle" style="width: 250px;">
-                <option>--Select Education--</option>
-                <option>Certificate</option>
-                <option>Diploma</option>
-                <option>Higher Diploma</option>
-                <option>Bachelor</option>
-                <option>Master's Degree</option>
-                <option>phD</option>
-              </select></li>
-              <li>CV Uploaded Date<br>
-                <input type="date" style="width: 250px; font-size: 17px;"></li>
-              <li>Industry<select class="form-control formstyle" id="selind" name="selind" style="
+                    <li>Experience <select class="form-control formstyle" style="width: 250px;">
+                        <option>--Select Experience--</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                      </select>
+                    </li>
+                    <li>Education<select class="form-control formstyle" style="width: 250px;">
+                        <option>--Select Education--</option>
+                        <option>Certificate</option>
+                        <option>Diploma</option>
+                        <option>Higher Diploma</option>
+                        <option>Bachelor</option>
+                        <option>Master's Degree</option>
+                        <option>phD</option>
+                      </select></li>
+                    <li>CV Uploaded Date<br>
+                      <input type="date" style="width: 250px; font-size: 17px;">
+                    </li>
+                    <li>Industry<select class="form-control formstyle" id="selind" name="selind" style="
     width: 250px;
 ">
-                <option>--Select Industry--</option>
-                <option>Academic</option>
-                <option>Academic & Salon</option>
-                <option>Advertising</option>
-                <option>Air Cargo/ Freight</option>
-                <option>Airline</option>
-                <option>Apparel</option>
-                <option>Automobile</option>
-                <option>Bank</option>
-                <option>Beverages</option>
-                <option>Blueship</option>
-                <option>BPO</option>
-                <option>Business Analyst</option>
-                <option>Call centre</option>
-                <option>Communications</option>
-                <option>Computer Peripherals</option>
-                <option>conglomerate</option>
-                <option>Constructions</option>
-                <option>Consulting</option>
-                <option>Councelling</option>
-                <option>Customer Service</option>
-                <option>Diamond</option>
-                <option>Digital Marketing</option>
-                <option>Embassy</option>
-                <option>Energy</option>
-                <option>Engineering</option>
-                <option>Entertaintment</option>
-                <option>Exports</option>
-                <option>Finance</option>
-                <option>Fishery</option>
-                <option>FMCG</option>
-                <option>FMGC</option>
-                <option>Food</option>
-                <option>Forces</option>
-                <option>Hardware</option>
-                <option>Healthcare</option>
-                <option>Herbal Cosmetic</option>
-                <option>Hospital</option>
-                <option>Hotel</option>
-                <option>Hydro power</option>
-                <option>Immigration</option>
-                <option>Industry</option>
-                <option>Indutsry info</option>
-                <option>Insurance</option>
-                <option>Investment</option>
-                <option>IT & Electronics</option>
-                <option>Logistic</option>
-                <option>Manufacturing</option>
-                <option>Manufacturing - Bevarages</option>
-                <option>Manufacturing - Biscuit</option>
-                <option>Manufacturing - food</option>
-                <option>Manufacturing - Food/cable</option>
-                <option>Manufacturing - Paints</option>
-                <option>Manufacturing - Porcelain</option>
-                <option>Manufacturing - Tyre</option>
-                <option>Manufacturing - Tyre, apparel</option>
-                <option>Manufacturing - Tyre, Biscuits</option>
-                <option>Manufacturing & Waste Mgt</option>
-                <option>Maritime</option>
-                <option>Media</option>
-                <option>Multinational</option>
-                <option>Online markering</option>
-                <option>Recruitment</option>
-                <option>Renewable Energy</option>
-                <option>Retail & Wholesale</option>
-                <option>Security Services</option>
-                <option>Shipping</option>
-                <option>Tea</option>
-                <option>Telecommunication</option>
-                <option>Trainee</option>
-              </select></li>
-              <li>Position<select class="form-control formstyle" id="selind" name="selind" style="
-    width: 250px;
-">
-                <option>--Select Position--</option>
-              </select></li>
-              <div class="pull-right" style="padding-right: 23px; padding-top: 20px;">
-                <input class="btn btn-success" type="button" name="Search" value="Search">
+                        <option>--Select Industry--</option>
+                        <option>Academic</option>
+                        <option>Academic & Salon</option>
+                        <option>Advertising</option>
+                        <option>Air Cargo/ Freight</option>
+                        <option>Airline</option>
+                        <option>Apparel</option>
+                        <option>Automobile</option>
+                        <option>Bank</option>
+                        <option>Beverages</option>
+                        <option>Blueship</option>
+                        <option>BPO</option>
+                        <option>Business Analyst</option>
+                        <option>Call centre</option>
+                        <option>Communications</option>
+                        <option>Computer Peripherals</option>
+                        <option>conglomerate</option>
+                        <option>Constructions</option>
+                        <option>Consulting</option>
+                        <option>Councelling</option>
+                        <option>Customer Service</option>
+                        <option>Diamond</option>
+                        <option>Digital Marketing</option>
+                        <option>Embassy</option>
+                        <option>Energy</option>
+                        <option>Engineering</option>
+                        <option>Entertaintment</option>
+                        <option>Exports</option>
+                        <option>Finance</option>
+                        <option>Fishery</option>
+                        <option>FMCG</option>
+                        <option>FMGC</option>
+                        <option>Food</option>
+                        <option>Forces</option>
+                        <option>Hardware</option>
+                        <option>Healthcare</option>
+                        <option>Herbal Cosmetic</option>
+                        <option>Hospital</option>
+                        <option>Hotel</option>
+                        <option>Hydro power</option>
+                        <option>Immigration</option>
+                        <option>Industry</option>
+                        <option>Indutsry info</option>
+                        <option>Insurance</option>
+                        <option>Investment</option>
+                        <option>IT & Electronics</option>
+                        <option>Logistic</option>
+                        <option>Manufacturing</option>
+                        <option>Manufacturing - Bevarages</option>
+                        <option>Manufacturing - Biscuit</option>
+                        <option>Manufacturing - food</option>
+                        <option>Manufacturing - Food/cable</option>
+                        <option>Manufacturing - Paints</option>
+                        <option>Manufacturing - Porcelain</option>
+                        <option>Manufacturing - Tyre</option>
+                        <option>Manufacturing - Tyre, apparel</option>
+                        <option>Manufacturing - Tyre, Biscuits</option>
+                        <option>Manufacturing & Waste Mgt</option>
+                        <option>Maritime</option>
+                        <option>Media</option>
+                        <option>Multinational</option>
+                        <option>Online markering</option>
+                        <option>Recruitment</option>
+                        <option>Renewable Energy</option>
+                        <option>Retail & Wholesale</option>
+                        <option>Security Services</option>
+                        <option>Shipping</option>
+                        <option>Tea</option>
+                        <option>Telecommunication</option>
+                        <option>Trainee</option>
+                      </select>
+                    </li>
+                    <li>Position<select class="form-control formstyle" id="pos" name="pos" style="width: 250px;">
+                        <option>--Select Position--</option>
+                      </select>
+                    </li>
+                    <div class="pull-right" style="padding-right: 23px; padding-top: 20px;">
+                      <input class="btn btn-success btnsrch" type="submit" name="Search" value="Search">
+                    </div>
+                  </form>
+                </ul>
               </div>
-            </form>
-          </ul>
-        </div>
-      </div>  
-    </div>
+            </div>
+          </div>
 
-    <hr style="border-top: 3px solid #FFFF;border-radius: 4px; margin-top: 80px;margin-bottom: 100px;">
+          <hr style="border-top: 3px solid #FFFF;border-radius: 4px; margin-top: 80px;margin-bottom: 100px;">
 
-    <div class="container" style="margin-top: 25px; padding-left: 100px; padding-right: 100px;">
-      <h1 class="col-md-5" style="color: white; margin:0px;">Manage Recruiters</h1>
-        <div class="content">
-          <div class="container-fluid"> 
-            <div class="row">
-              <div class="col-md-12" style="padding-left:25px; padding-right:25px;">
-                <div class="card card-plain" style="color: #FF9400;">
-                  <div class="card-header card-header-primary">
-                    <br><br>
+          <div class="container" style="margin-top: 25px; padding-left: 100px; padding-right: 100px;">
+            <h1 class="col-md-5" style="color: white; margin:0px;">Manage Recruiters</h1>
+            <div class="content">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12" style="padding-left:25px; padding-right:25px;">
+                    <div class="card card-plain" style="color: #FF9400;">
+                      <div class="card-header card-header-primary">
+                        <br><br>
                         <!--<h2 class="card-title mt-0">Recruiters</h2>-->
-                  
+
                       </div>
                       <div class="card-body">
                         <div class="table-responsive" >
                           <table class="table table-hover tstyle" rows="4">
                             <thead style="border-top: #DDDDDD;">
-                              <th>ID</th>
-                              <th>Recruiter Name</th>
-                              <th>Username</th>
-                              <th>Password</th>
-                              <th>Status</th>
+                            <th>ID</th>
+                            <th>Recruiter Name</th>
+                            <th>Username</th>
+                            <th>Status</th>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>1</td>
-                                <td>Dakota Rice</td>
-                                <td>Niger</td>
-                                <td>Oud-Turnhout</td>
-                                <td>Active</td>
-                              </tr>
-                              <tr>
-                                <td>2</td>
-                                <td>Minerva Hooper</td>
-                                <td>Curaçao</td>
-                                <td>Sinaai-Waas</td>
-                                <td>Deactive</td>
-                              </tr>
-                              <tr>
-                                <td>3</td>
-                                <td>Sage Rodriguez</td>
-                                <td>Netherlands</td>
-                                <td>Baileux</td>
-                                <td>Active</td>
-                              </tr>
-                              <tr>
-                                <td>4</td>
-                                <td>Philip Chaney</td>
-                                <td>Korea, South</td>
-                                <td>Overland Park</td>
-                                <td>Deactive</td>
-                              </tr>
-                              <tr>
-                                <td>5</td>
-                                <td>Doris Greene</td>
-                                <td>Malawi</td>
-                                <td>Feldkirchen in Kärnten</td>
-                                <td>Active</td>
-                              </tr>
-                              <tr>
-                                <td>6</td>
-                                <td>Mason Porter</td>
-                                <td>Chile</td>
-                                <td>Gloucester</td>
-                                <td>Active</td>
-                              </tr>
+                            <!--<tr>
+                              <td>1</td>
+                              <td>Dakota Rice</td>
+                              <td>Niger</td>
+                              <td><select name="" id="">
+                                  <option value="">Active</option>
+                                  <option value="">Deactive</option>
+                                </select></td>
+                            </tr>-->
+                            <% for (var i=0; i < results.length; i++) { %>
+                            <tr>
+                              <td><%= results[i].id %></td>
+                              <td><%= results[i].recruitername %></td>
+                              <td><%= results[i].username %></td>
+                              <td><select name="" id="">
+                                  <option value="">Active</option>
+                                  <option value="">Deactive</option>
+                                </select></td></td>
+                            </tr>
+                            <% } %>
                             </tbody>
                           </table>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div> 
+                </div>
 
-    <div class="container"> 
-      <div class="pull-right" style="padding-right: 225px; padding-top: 35px;">
-        <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-lg btn-success" type="button" name="add" value="Add" style="width: 119.05px;margin-right: 5px;">
-        <input class="btn btn-lg btn-success" type="button" name="deactivate" value="De/activate">
-      </div>
+                <div class="container">
+                  <div class="pull-right" style="padding-right: 225px; padding-top: 35px;">
+                    <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-success" type="button" name="add" value="Add" style="width: 119.05px;margin-right: 5px;">
+                  </div>
 
-    <div class="container">
-      <div id="modal-wrapper" class="modal">
-        <form class="modal-content animate createRec" action="/addacc" method="POST">
-          <h1 style="margin-bottom: 20px;padding-top: 20px;">Create Recruiter</h1>
-            <div class="imgcontainer">
-              <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
+                  <div class="container">
+                    <div id="modal-wrapper" class="modal">
+                      <form class="modal-content animate createRec" action="/addacc" method="POST">
+                        <h1 style="margin-bottom: 20px;padding-top: 20px;">Create Recruiter</h1>
+                        <div class="imgcontainer">
+                          <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close" style="padding-left: 3px;">&times;</span>
+                        </div>
+                        <div style="padding-top: 20px;">
+                          <div class="form-group formcon candyform">
+                            <input type="text" placeholder="Recruiter Name" class="form-control form-control-lg" style="font-size:22px;" name="recruitername" id="recruitername">
+
+                          </div>
+                          <div class="form-group formcon candyform">
+                            <input type="text" placeholder="Username" class="form-control form-control-lg" style="font-size:22px;" name="username" id="username">
+                          </div>
+                          <div class="form-group formcon candyform">
+                            <input type="password" placeholder="Password" class="form-control form-control-lg" style="font-size:22px;" name="password" id="password">
+                          </div>
+                          <div class="form-group formcon candyform">
+                            <input type="password" placeholder="Confirm Password" class="form-control form-control-lg" style="font-size:22px;">
+                          </div>
+
+                          <div class="pull-right" style="padding-right: 100px; padding-top: 10px;">
+                            <input class="btn btn-success" type="submit" name="submit" value="Submit">
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div style="padding-top: 20px;">
-              <div class="form-group formcon candyform">
-                <input type="text" placeholder="Candidate Name" class="form-control form-control-lg" style="font-size:22px;" name="recruitername" id="recruitername">
-                 
-              </div>
-              <div class="form-group formcon candyform">
-                <input type="text" placeholder="Username" class="form-control form-control-lg" style="font-size:22px;" name="username" id="username">
-              </div>
-              <div class="form-group formcon candyform">
-                <input type="password" placeholder="Password" class="form-control form-control-lg" style="font-size:22px;" name="password" id="password">
-              </div>
-              <div class="form-group formcon candyform">
-                <input type="password" placeholder="Confirm Password" class="form-control form-control-lg" style="font-size:22px;">
-              </div>
-
-              <div class="pull-right" style="padding-right: 100px; padding-top: 10px;">
-                <input class="btn btn-lg btn-success" type="submit" name="submit" value="Submit">
-              </div>
-            </div>
-        </form>
-      </div>
-    </div>   
-    </div>
           </div>
         </div>
-    </div>
-    </div>
-  <div class="container" style="padding-top: 45px;">
-    <h1 style="padding-right: 1000px;">Statistics</h1>
-    <div class="row">
-      <br>
+
+      </div>
+      <div class="container">
+        <h1>Statistics</h1>
+        <div class="row">
+          <br>
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box rad-txt-success">
               <i class="fa fa-windows"></i>
-              <span class="heading">CVs (Year)</span>
-              <span class="value"><span><%= yearcv %></span></span>
+              <span class="heading">CVs</span>
+              <span class="value"><span>4949</span></span>
             </div>
           </div>
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box rad-txt-primary">
               <i class="fa fa-facebook"></i>
-              <span class="heading">Active Job Posts</span>
-              <span class="value"><span><%= joblist %></span></span>
+              <span class="heading">Job Posts</span>
+              <span class="value"><span>23K</span></span>
             </div>
           </div>
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box rad-txt-danger">
               <i class="fa fa-google-plus"></i>
               <span class="heading">This Month Application</span>
-              <span class="value"><span><%= monthcv %></span></span>
+              <span class="value"><span>49M</span></span>
             </div>
           </div>
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box">
               <i class="fa fa-apple"></i>
-              <span class="heading">Total CVs</span>
-              <span class="value"><span><%= allcv %></span></span>
+              <span class="heading">etc...</span>
+              <span class="value"><span>10.9K</span></span>
             </div>
           </div>
-          </div>
-          <br><br>
-          <div class="row">
+        </div>
+        <br><br>
+        <div class="row">
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box rad-txt-success">
               <i class="fa fa-windows"></i>
@@ -352,29 +390,115 @@
             </div>
           </div>
         </div>
+      </div>
+
+
+
+    </div>
+
+  </section>
+
 </div>
 
-<footer style="position: relative !important;">
+<footer id="fh5co-footer" role="contentinfo" style="padding:35px 0; padding-bottom: 20px;">
+
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
-        <p>© 2018 <a href="#">Kent Ridge</a>. All rights reserved.</p>
-      </div><!-- end columns -->
-    </div><!-- end row -->
-  </div><!-- end container -->
+    <div class="col-md-4 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+      <h3 style="font-size: 20px;">About Us</h3>
+      <p class="pcol" style="font-size: 18px;">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+
+    </div>
+    <div class="col-md-4 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0" style="padding-left: 100px;">
+
+      <h3 style="font-size: 20px;">Our Services</h3>
+      <ul class="float">
+        <li><a href="#">Blah</a></li>
+        <li><a href="#">Blah &amp; Blah</a></li>
+        <li><a href="#">Blah blah</a></li>
+        <li><a href="#">Blah blah blah blah</a></li>
+      </ul>
+    </div>
+
+    <div class="col-md-4 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+      <h3 style="font-size: 20px;">Follow Us</h3>
+      <ul class="fh5co-social">
+        <li><a href="#"><i class="icon-twitter"></i></a></li>
+        <li><a href="#"><i class="icon-facebook"></i></a></li>
+        <li><a href="#"><i class="icon-google-plus"></i></a></li>
+        <li><a href="#"><i class="icon-instagram"></i></a></li>
+      </ul>
+    </div>
+
+
+    <div class="col-md-12 fh5co-copyright text-center" style="padding-bottom: 0;margin-top: 0 !important;padding-top: 20px;">
+      <p class="pcol" style="margin-bottom: 0;">&copy; 2018 <a class="ppcol" href="" target="_blank">Kent Ridge</a>. All Rights Reserved.</p>
+    </div>
+
+  </div>
 </footer>
 
-  <script type="text/javascript">
+
+
+<script type="text/javascript">
     var modal = document.getElementById('modal-wrapper');
     window.onclick = function(event)
-      {
+    {
         if (event.target == modal)
-          {
+        {
             modal.style.display = "none";
-          }
-      }
-  </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        var next = 1;
+        $(".add-more").click(function(e)
+        {
+            e.preventDefault();
+            var addto = "#field" + next;
+            var addRemove = "#field" + (next);
+            next = next + 1;
+            var newIn = '<input autocomplete="off" class="input form-control" id="field' + next + '" name="field' + next + '" type="text">';
+            var newInput = $(newIn);
+            var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" style="height: 34px;width: 40px;font-size: 17px; padding-left: 10px;" ><span class="glyphicon glyphicon-remove" aria-hidden="true"></button></div><div id="field">';
+            var removeButton = $(removeBtn);
+            $(addto).after(newInput);
+            $(addRemove).after(removeButton);
+
+            $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+            $("#count").val(next);
+
+            $('.remove-me').click(function(e)
+            {
+                e.preventDefault();
+                var fieldNum = this.id.charAt(this.id.length-1);
+                var fieldID = "#field" + fieldNum;
+                $(this).remove();
+                $(fieldID).remove();
+            });
+        });
+    });
+</script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/jquery.waypoints.min.js"></script>
+<!-- Flexslider -->
+<script src="js/jquery.flexslider-min.js"></script>
+
+<!-- MAIN JS -->
+<script src="js/main.js"></script>
+
 </body>
 </html>
+

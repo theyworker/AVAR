@@ -375,7 +375,7 @@ app.post('/login', function (req, res) {
 app.post('/search', function (req, res) {
   var stuff = req.body.searchstuff
 
-con.query('SELECT * FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
+  con.query('SELECT fname, email, tel, address, submitdate, appliedjob, cvdir, remarks FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({
@@ -383,7 +383,7 @@ con.query('SELECT * FROM candidatetest WHERE CONCAT(fname, email, address, quali
       "failed":"error ocurred"
       })
     }else{
-      res.send(results)
+      res.render('searchResult', {results: results})
     }
   })
 })
@@ -396,7 +396,7 @@ app.post('/advsearch', function (req, res) {
   //var pos = req.body.pos
 
   console.log(exp + edu + date + ind)
-con.query("SELECT * FROM candidatetest WHERE demo = ? AND quali = ? AND submitdate = ? AND curind = ?",[exp, edu, date, ind], function (error, results, fields) {
+  con.query("SELECT * FROM candidatetest WHERE demo = ? AND quali = ? AND submitdate = ? AND curind = ?",[exp, edu, date, ind], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({

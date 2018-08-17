@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "client-sessions": "^0.8.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-fileupload": "^0.4.0",
-    "mysql": "^2.15.0"
+    "mysql": "^2.15.0",
+    "node-datetime": "^2.0.9"
   },
   "devDependencies": {
     "eslint": "^5.1.0",

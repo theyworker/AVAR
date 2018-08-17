@@ -4,28 +4,38 @@
  <title>Automated Value Added Recruiting</title>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/styles.css"/>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <img src="#" alt="<KR Logo>">
-      </div>
-      <div>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#">How it works?</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
+<header>
+    <nav class="navbar navhead">
+        <div class="col-md-10" style="margin-left: 152px;">
+            <div class="container ">
+                <div class="navbar-header">
+                    <img src="images/site_logo.jpg" alt="<KR Logo>">
+                </div>
+                <div >
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="#">How it works?</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
 
-    </div>
+            </div>
+        </div>
+        <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
+            <!-- <div class="pull-right">
+                <input class="btn btn-lg btn-success " type="submit" name="login" value="Login">
+            </div> -->
+        </div>
+    </nav>
+</header>
 
-  </nav>
 
 
   <div class="container" >
@@ -68,7 +78,16 @@
   </div>
   <div class="form-group">
     <label for="quali">Highest Qualification:</label>
-    <input type="text" class="form-control" name="quali" id="quali">
+    <select class="form-control formstyle" style="width: 250px;"  name="quali" id="quali">
+                  <option>--Select Education--</option>
+                  <option>Certificate</option>
+                  <option>Diploma</option>
+                  <option>Higher Diploma</option>
+                  <option>Bachelor</option>
+                  <option>Master's Degree</option>
+                  <option>phD</option>
+                </select>
+   <!-- <input type="text" class="form-control">-->
   </div>
   <div >
     <h2>Experience</h2>
@@ -86,5 +105,15 @@
 <input class="btn btn-primary" type="submit" value="Submit">
     </form>
 </div>
+
+<footer style="margin-top: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" id="copyright">
+                <p>© 2018 <a href="#">Kent Ridge</a>. All rights reserved.</p>
+            </div><!-- end columns -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</footer>
 </body>
 </html>

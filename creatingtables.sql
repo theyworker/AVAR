@@ -17,6 +17,8 @@ CREATE TABLE `basictest`.`candidatetest` (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
+ALTER TABLE `candidatetest` ADD `linkedinurl` VARCHAR(200) NULL AFTER `submitdate`, ADD `salaryrange` VARCHAR(50) NULL AFTER `linkedinurl`; 
+
 CREATE TABLE `basictest`.`joblist` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `job` varchar(50) NOT NULL,
   `industry` varchar(50) DEFAULT NULL,
@@ -28,8 +30,13 @@ INSERT INTO `basictest`.`joblist` (`job`) VALUES ('HR Services Executive'),('Ass
 
 CREATE TABLE `basictest`.`credentials` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
   `recruitername` varchar(50) NOT NULL,
+  `usertype` varchar(50) NOT NULL,
   PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`) VALUES ('user','pass','Dave');
+INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('user','$2b$10$roMjms2jkHkTb0O0OCiylu7mDabfc8Nez/F0KfUolf2ruoDc.Pfr2','Dave','rct');
+INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('manager','$2b$10$roMjms2jkHkTb0O0OCiylu7mDabfc8Nez/F0KfUolf2ruoDc.Pfr2','Mave','mng');
+
+ALTER TABLE `basictest`.`credentials` ADD `lastlogin` DATETIME NULL AFTER `usertype`;
+ALTER TABLE `basictest`.`credentials` ADD `timeon` INT(50) NULL DEFAULT '0' AFTER `lastlogin`; 

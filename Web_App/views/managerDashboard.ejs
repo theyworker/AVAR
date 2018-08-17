@@ -29,7 +29,8 @@
     </div>
     <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
       <div class="pull-right">
-        <input class="btn btn-lg btn-success " type="submit" name="logout" value="Logout">
+        <form action="/logout" method="get" id="form1"></form>
+        <input class="btn btn-lg btn-success " type="submit" name="logout" value="Logout" form="form1">
       </div>
     </div>
   </nav>
@@ -294,29 +295,29 @@
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box rad-txt-success">
               <i class="fa fa-windows"></i>
-              <span class="heading">CVs</span>
-              <span class="value"><span>4949</span></span>
+              <span class="heading">CVs (Year)</span>
+              <span class="value"><span><%= yearcv %></span></span>
             </div>
           </div>
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box rad-txt-primary">
               <i class="fa fa-facebook"></i>
-              <span class="heading">Job Posts</span>
-              <span class="value"><span>23K</span></span>
+              <span class="heading">Active Job Posts</span>
+              <span class="value"><span><%= joblist %></span></span>
             </div>
           </div>
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box rad-txt-danger">
               <i class="fa fa-google-plus"></i>
               <span class="heading">This Month Application</span>
-              <span class="value"><span>49M</span></span>
+              <span class="value"><span><%= monthcv %></span></span>
             </div>
           </div>
           <div class="col-lg-3 col-xs-6">
             <div class="rad-info-box">
               <i class="fa fa-apple"></i>
-              <span class="heading">etc...</span>
-              <span class="value"><span>10.9K</span></span>
+              <span class="heading">Total CVs</span>
+              <span class="value"><span><%= allcv %></span></span>
             </div>
           </div>
           </div>

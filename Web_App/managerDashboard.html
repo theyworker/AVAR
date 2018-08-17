@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+     <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+        <html class="no-js lt-ie9 lt-ie8">
+      <html class="no-js lt-ie9">
+<html class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="icon" href="images/fevicon.jpg" type="image/x-icon">
-  <title>Kent Ridge &mdash; Login </title>
+  <title>Kent Ridge - Automated Value Added Recruiting </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
   <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -142,7 +142,8 @@
                       <option>phD</option>
                     </select></li>
                     <li>CV Uploaded Date<br>
-                      <input type="date" style="width: 250px; font-size: 17px;"></li>
+                      <input type="date" style="width: 250px; font-size: 17px;">
+                    </li>
                     <li>Industry<select class="form-control formstyle" id="selind" name="selind" style="
     width: 250px;
 ">
@@ -216,12 +217,12 @@
                       <option>Tea</option>
                       <option>Telecommunication</option>
                       <option>Trainee</option>
-                    </select></li>
-                    <li>Position<select class="form-control formstyle" id="selind" name="selind" style="
-    width: 250px;
-">
+                    </select>
+                    </li>
+                    <li>Position<select class="form-control formstyle" id="selind" name="selind" style="width: 250px;">
                       <option>--Select Position--</option>
-                    </select></li>
+                    </select>
+                    </li>
                     <div class="pull-right" style="padding-right: 23px; padding-top: 20px;">
                       <input class="btn btn-success btnsrch" type="button" name="Search" value="Search">
                     </div>
@@ -261,42 +262,60 @@
                               <td>Dakota Rice</td>
                               <td>Niger</td>
                               <td>Oud-Turnhout</td>
-                              <td>Active</td>
+                              <td><select name="" id="">
+                                <option value="">Active</option>
+                                <option value="">Deactive</option>
+                              </select></td>
                             </tr>
                             <tr>
                               <td>2</td>
                               <td>Minerva Hooper</td>
                               <td>Curaçao</td>
                               <td>Sinaai-Waas</td>
-                              <td>Deactive</td>
+                              <td><select name="" id="">
+                                <option value="">Active</option>
+                                <option value="">Deactive</option>
+                              </select></td></td>
                             </tr>
                             <tr>
                               <td>3</td>
                               <td>Sage Rodriguez</td>
                               <td>Netherlands</td>
                               <td>Baileux</td>
-                              <td>Active</td>
+                              <td><select name="" id="">
+                                <option value="">Active</option>
+                                <option value="">Deactive</option>
+                              </select></td></td>
                             </tr>
                             <tr>
                               <td>4</td>
                               <td>Philip Chaney</td>
                               <td>Korea, South</td>
                               <td>Overland Park</td>
-                              <td>Deactive</td>
+                              <td><select name="" id="">
+                                <option value="">Active</option>
+                                <option value="">Deactive</option>
+                              </select></td></td>
                             </tr>
                             <tr>
                               <td>5</td>
                               <td>Doris Greene</td>
                               <td>Malawi</td>
                               <td>Feldkirchen in Kärnten</td>
-                              <td>Active</td>
+                              <td><select name="" id="">
+                                <option value="">Active</option>
+                                <option value="">Deactive</option>
+                              </select></td></td>
                             </tr>
                             <tr>
                               <td>6</td>
                               <td>Mason Porter</td>
                               <td>Chile</td>
                               <td>Gloucester</td>
-                              <td>Active</td>
+                              <td><select name="" id="">
+                                <option value="">Active</option>
+                                <option value="">Deactive</option>
+                              </select></td></td>
                             </tr>
                             </tbody>
                           </table>
@@ -309,7 +328,6 @@
                 <div class="container">
                   <div class="pull-right" style="padding-right: 225px; padding-top: 35px;">
                     <input onclick="document.getElementById('modal-wrapper').style.display='block'"  class="btn btn-success" type="button" name="add" value="Add" style="width: 119.05px;margin-right: 5px;">
-                    <input class="btn btn-success" type="button" name="deactivate" value="De/activate">
                   </div>
 
                   <div class="container">
@@ -321,7 +339,7 @@
                         </div>
                         <div style="padding-top: 20px;">
                           <div class="form-group formcon candyform">
-                            <input type="text" placeholder="Candidate Name" class="form-control form-control-lg" style="font-size:22px;" name="recruitername" id="recruitername">
+                            <input type="text" placeholder="Recruiter Name" class="form-control form-control-lg" style="font-size:22px;" name="recruitername" id="recruitername">
 
                           </div>
                           <div class="form-group formcon candyform">
@@ -503,6 +521,7 @@
         });
     });
 </script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 

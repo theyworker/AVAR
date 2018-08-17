@@ -155,7 +155,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="curind">Salary Scale:</label>
-                  <select class="form-control formstyle"  name="quali" id="quali">
+                  <select class="form-control formstyle"  name="range" id="range">
                     <option>--Select Salary Range--</option>
                     <option>30,000 - 50,000</option>
                     <option>50,000 - 80,000</option>
@@ -189,6 +189,7 @@
 
                 </div>
                 <br/>
+                <input id="applied" name="applied" type="hidden" value="<%= job %>">
                 <input class="btn btn-success btn-outline pull-right" type="submit" value="Submit" onclick="validation()"; style="height: 45px;margin-bottom: 30px; line-height: 0;">
               </div>
             </div>

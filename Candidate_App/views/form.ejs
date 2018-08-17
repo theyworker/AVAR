@@ -41,13 +41,13 @@
   <link rel="stylesheet" href="css/flexslider.css">
   <!-- Theme style  -->
   <link rel="stylesheet" href="css/style.css">
-
+<script src="js/validation.js"></script>
   <!-- Modernizr JS -->
   <script src="js/modernizr-2.6.2.min.js"></script>
   <!-- FOR IE9 below -->
-  <!--[if lt IE 9]>
+  <!--[if lt IE 9]-->
   <script src="js/respond.min.js"></script>
-  <![endif]-->
+  <!--[endif]-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -77,11 +77,11 @@
     <div class="flexslider js-fullheight">
 
       <div class="container" style="padding-top: 100px;">
-
+<div id="msg1"></div>
         <div class="page-header">
           <h1>Application for <%= job %> </h1>
         </div>
-        <form class="col-md-12" action="/submit" method="POST" encType="multipart/form-data">
+        <form class="col-md-12" name="Appform" action="/submit" method="POST" encType="multipart/form-data">
           <div class="row">
             <div class="col-md-12">
               <div class="col-md-6">
@@ -92,14 +92,17 @@
                   <div class="form-group">
                     <label for="fname">Full Name:</label>
                     <input type="text" class="form-control" name="fname" id="fname">
+                     
                   </div>
                   <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" class="form-control" name="email" id="email">
+                    <div id="msg2"></div>
                   </div>
                   <div class="form-group">
                     <label for="tel">Telephone Number:</label>
                     <input type="tel" class="form-control" name="tel" id="tel">
+                    <div id="msg3"></div>
                   </div>
                   <div class="form-group">
                     <label for="address">Address:</label>
@@ -176,7 +179,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="curind">LinkedIn profile(URL)</label>
-                  <input type="text" class="form-control" name="curind" id="curind">
+                  <input type="text" class="form-control" name="Lurl" id="Lurl">
                 </div>
               </div>
               <div class="col-md-6">
@@ -186,7 +189,7 @@
 
                 </div>
                 <br/>
-                <input class="btn btn-success btn-outline pull-right" type="submit" value="Submit" style="height: 45px;margin-bottom: 30px; line-height: 0;">
+                <input class="btn btn-success btn-outline pull-right" type="submit" value="Submit" onclick="validation()"; style="height: 45px;margin-bottom: 30px; line-height: 0;">
               </div>
             </div>
 

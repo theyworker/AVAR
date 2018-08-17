@@ -90,7 +90,8 @@
     <div class="col-md-1" style="padding-left: 180px;padding-top: 8px;">
         <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
             <div class="pull-right">
-                <input class="btn btn-success" style="font-size: 19px;" type="submit" name="logout" value="Logout">
+                <form action="/logout" method="get" id="form1"></form>
+                <input class="btn btn-success" style="font-size: 19px;" type="submit" name="logout" value="Logout" form="form1">
             </div>
         </div>
     </div>
@@ -121,7 +122,7 @@
                             <th>Remark</th>
                             </thead>
                             <tbody>
-                            <tr>
+                            <!--<tr>
                                 <td>John Doe</td>
                                 <td>JohnDoe@gmail.com</td>
                                 <td>011 1234567</td>
@@ -129,17 +130,7 @@
                                 <td>HR Services Executive</td>
                                 <td>10/08/2018</td>
                                 <td>CV</td>
-                                <td><input type="text"> <input class="btn btn-success btnremark" type="submit" value="save"></td>
-                            </tr>
-                            <tr>
-                                <td>John Doe</td>
-                                <td>JohnDoe@gmail.com</td>
-                                <td>011 1234567</td>
-                                <td>12 sunset road ..</td>
-                                <td>HR Services Executive</td>
-                                <td>10/08/2018</td>
-                                <td>CV</td>
-                                <td><input type="text"> <input class="btn btn-success btnremark" type="submit" value="save"></td>
+                                <td><input type="text"> <input class="btn btn-success btnremark" type="submit" value="save"></td> -->
                             <% for (var i=0; i < results.length; i++) { %>
                             <tr>
                                 <td> <%= results[i].fname %></td>

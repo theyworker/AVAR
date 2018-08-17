@@ -338,7 +338,9 @@ app.post('/login', function (req, res) {
                     }
                     else if(type == 'mng'){
                       //RENDERS THE MANAGER PAGE
-                      res.render('managerDashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
+                      con.query('SELECT * FROM credentials', function (error, results) {
+                        res.render('managerDashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available, results: results})
+                      })
                     }
                     else{
                       res.send({

@@ -81,7 +81,8 @@
     <div class="col-md-1" style="padding-left: 180px;padding-top: 8px;">
       <div class="container col-md-1" style="width:80px;margin-top: 12px; ">
         <div class="pull-right">
-          <input class="btn btn-success" style="font-size: 19px;" type="submit" name="logout" value="Logout">
+          <form action="/logout" method="get" id="form1"></form>
+          <input class="btn btn-success" style="font-size: 19px;" type="submit" name="logout" value="Logout" form="form1">
         </div>
       </div>
     </div>
@@ -98,10 +99,10 @@
         <div class="container" align="center" style="background-color:#282923;height: 850px;border-radius: 10px;">
           <div class="featurette" style="height: 110px;">
             <div class="featurette-inner text-center">
-              <form role="form" class="search has-button" style="padding-bottom: 0;">
+              <form role="form" class="search has-button" style="padding-bottom: 0;" action="/search" method="POST">
                 <div class="form-group">
                   <input type="search" placeholder="search" class="form-control form-control-lg" style="font-size:22px;width: 520px; background-color: white;" name="searchstuff" id="searchstuff">
-                  <button style="margin-left: 20px;padding-bottom: 5px;" class="btn btn-success" type="button">Search</button>
+                  <button style="margin-left: 20px;padding-bottom: 5px;" class="btn btn-success" type="submit">Search</button>
                 </div>
                 <!-- /form-group -->
               </form>
@@ -117,7 +118,7 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdownlist">
-                  <form style="padding-left: 40px;" action="/action_page.php">
+                  <form style="padding-left: 40px;" action="/advsearch" method="POST">
                     <li class="dropdown-header" style="padding-left: 80px;font-size: 15px;font-weight: bold;">Find Who Applied</li>
 
                     <li>Experience <select class="form-control formstyle" style="width: 250px;">
@@ -219,12 +220,12 @@
                         <option>Trainee</option>
                       </select>
                     </li>
-                    <li>Position<select class="form-control formstyle" id="selind" name="selind" style="width: 250px;">
+                    <li>Position<select class="form-control formstyle" id="pos" name="pos" style="width: 250px;">
                         <option>--Select Position--</option>
                       </select>
                     </li>
                     <div class="pull-right" style="padding-right: 23px; padding-top: 20px;">
-                      <input class="btn btn-success btnsrch" type="button" name="Search" value="Search">
+                      <input class="btn btn-success btnsrch" type="submit" name="Search" value="Search">
                     </div>
                   </form>
                 </ul>
@@ -253,70 +254,29 @@
                             <th>ID</th>
                             <th>Recruiter Name</th>
                             <th>Username</th>
-                            <th>Password</th>
                             <th>Status</th>
                             </thead>
                             <tbody>
-                            <tr>
+                            <!--<tr>
                               <td>1</td>
                               <td>Dakota Rice</td>
                               <td>Niger</td>
-                              <td>Oud-Turnhout</td>
                               <td><select name="" id="">
                                   <option value="">Active</option>
                                   <option value="">Deactive</option>
                                 </select></td>
-                            </tr>
+                            </tr>-->
+                            <% for (var i=0; i < results.length; i++) { %>
                             <tr>
-                              <td>2</td>
-                              <td>Minerva Hooper</td>
-                              <td>Curaçao</td>
-                              <td>Sinaai-Waas</td>
+                              <td><%= results[i].id %></td>
+                              <td><%= results[i].recruitername %></td>
+                              <td><%= results[i].username %></td>
                               <td><select name="" id="">
                                   <option value="">Active</option>
                                   <option value="">Deactive</option>
                                 </select></td></td>
                             </tr>
-                            <tr>
-                              <td>3</td>
-                              <td>Sage Rodriguez</td>
-                              <td>Netherlands</td>
-                              <td>Baileux</td>
-                              <td><select name="" id="">
-                                  <option value="">Active</option>
-                                  <option value="">Deactive</option>
-                                </select></td></td>
-                            </tr>
-                            <tr>
-                              <td>4</td>
-                              <td>Philip Chaney</td>
-                              <td>Korea, South</td>
-                              <td>Overland Par</td>
-                              <td><select name="" id="">
-                                  <option value="">Active</option>
-                                  <option value="">Deactive</option>
-                                </select></td></td>
-                            </tr>
-                            <tr>
-                              <td>5</td>
-                              <td>Doris Greene</td>
-                              <td>Malawi</td>
-                              <td>Feldkirchen in Kärnten</td>
-                              <td><select name="" id="">
-                                  <option value="">Active</option>
-                                  <option value="">Deactive</option>
-                                </select></td></td>
-                            </tr>
-                            <tr>
-                              <td>6</td>
-                              <td>Mason Porter</td>
-                              <td>Chile</td>
-                              <td>Gloucester</td>
-                              <td><select name="" id="">
-                                  <option value="">Active</option>
-                                  <option value="">Deactive</option>
-                                </select></td></td>
-                            </tr>
+                            <% } %>
                             </tbody>
                           </table>
                         </div>

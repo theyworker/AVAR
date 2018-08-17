@@ -30,7 +30,7 @@ INSERT INTO `basictest`.`joblist` (`job`) VALUES ('HR Services Executive'),('Ass
 
 CREATE TABLE `basictest`.`credentials` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
   `recruitername` varchar(50) NOT NULL,
   `usertype` varchar(50) NOT NULL,
   PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;

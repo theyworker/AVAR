@@ -9,7 +9,8 @@ app.use(express.static(path.join(__dirname, 'Candidate_App')));
 var fileupload = require('express-fileupload')
 app.use(fileupload())
 var session = require('client-sessions');
-var dateTime = require('node-datetime')
+var dateTime = require('node-datetime');
+var bcrypt = require('bcrypt');
 
 
 app.set('view engine', 'ejs')
@@ -70,6 +71,11 @@ app.get('/', function (req, res) {
   res.render('index', {job: dbjob})
 })
 
+app.get('/index.html', function (req, res) {
+  retrievejoblist()
+  res.render('index', {job: dbjob})
+})
+
 app.get('/form1.html', function (req, res) {
   res.sendFile(path.join(__dirname, '/Candidate_App/form1.html'))
 })
@@ -81,6 +87,10 @@ app.get('/cantfind', function (req, res) {
 
 app.get('/rc', function (req, res) {
   res.sendFile(path.join(__dirname, '/Web_App/login.html'))
+})
+
+app.get('/recoveryPassword.html', function (req, res) {
+  res.sendFile(path.join(__dirname, '/Web_App/recoveryPassword.html'))
 })
 
 app.get('/logout', function (req, res) {
@@ -210,9 +220,8 @@ app.post('/submit', function (req, res) {
   var formatted = dt.format('Y-m-d')
   console.log(formatted)
 
-  res.write('You sent the name "' + req.body.fname + '".\n')
-  res.write('You sent the email "' + req.body.email + '".\n')
-  console.log('This just in!!! ' + fname + ' and ' + email + ' and ' + dir)
+  res.sendFile(path.join(__dirname, '/Candidate_App/confirmPage.html'))
+  console.log('Submission: ' + fname + ' and ' + email + ' and ' + dir)
 
   var sql = 'INSERT INTO candidatetest (fname, email, tel, address, curemp, curind, quali, demo, cvdir, appliedjob, submitdate, linkedinurl, salaryrange)' +
   "VALUES ('" + fname + "','" + email + "','" + tel + "','" + address + "','" + curemp + "','" + curind + "','" + quali + "','" + demo + "','" + dir + "','" + apply + "','" + formatted + "','" + linkedin + "','" + range + "')"
@@ -242,8 +251,6 @@ app.post('/create', function (req, res) {
   var lvl = req.body.sellvl
   var desc = req.body.txtdesc
 
-  res.write('You just added the job "' + req.body.sellvl + ' ' + req.body.seljob + ' in ' + req.body.selind + '" \n')
-  res.write('That was a mouthful to print!\n')
   console.log('Job created! ' + lvl + ' ' + job + ' in ' + industry + '!')
 
   var sql = 'INSERT INTO joblist (job, industry, level, description)' +
@@ -269,87 +276,90 @@ app.post('/login', function (req, res) {
   }else{
     // console.log('The solution is: ', results);
     if(results.length >0){
-      if(results[0].password == pass1){
-        var type = results[0].usertype
+      bcrypt.compare(pass1, results[0].password, function (err, result) {
 
-        var cv = 0
-        var cvmonth = 0
-        var cvyear = 0
-        var available = 0
+        if(result == true){
+          var type = results[0].usertype
 
-        var datemonth = dateTime.create()
-        datemonth.offsetInDays(-31)
-        var formatted = datemonth.format('Y-m-d')
-        var dateyear = dateTime.create()
-        dateyear.offsetInDays(-365)
-        var formatted2 = dateyear.format('Y-m-d')
+          var cv = 0
+          var cvmonth = 0
+          var cvyear = 0
+          var available = 0
 
-        var currenttime = dateTime.create()
-        var formatted3 = currenttime.format('Y-m-d H:M:S')
+          var datemonth = dateTime.create()
+          datemonth.offsetInDays(-31)
+          var formatted = datemonth.format('Y-m-d')
+          var dateyear = dateTime.create()
+          dateyear.offsetInDays(-365)
+          var formatted2 = dateyear.format('Y-m-d')
 
-        //Sets cookie with user
-        req.session.user = user1;
-        req.session.time = currenttime.now()
+          var currenttime = dateTime.create()
+          var formatted3 = currenttime.format('Y-m-d H:M:S')
 
-        //Gets list of all total cvs
-        con.query('SELECT * FROM candidatetest', function (error, results) {
-          if (error) {
-            console.log("error occurred", error)
-          }
-          cv = results.length
+          //Sets cookie with user
+          req.session.user = user1;
+          req.session.time = currenttime.now()
 
-          //Gets list of all cvs in a month
-          con.query('SELECT * FROM candidatetest WHERE DATE(submitdate) >= ?',[formatted], function (error, results) {
+          //Gets list of all total cvs
+          con.query('SELECT * FROM candidatetest', function (error, results) {
             if (error) {
               console.log("error occurred", error)
             }
-            cvmonth = results.length
+            cv = results.length
 
-            //Gets list of all cvs in a year
-            con.query('SELECT * FROM candidatetest WHERE DATE(submitdate) >= ?',[formatted2], function (error, results) {
+            //Gets list of all cvs in a month
+            con.query('SELECT * FROM candidatetest WHERE DATE(submitdate) >= ?',[formatted], function (error, results) {
               if (error) {
                 console.log("error occurred", error)
               }
-              cvyear = results.length
+              cvmonth = results.length
 
-              //Gets list of all jobs
-              con.query('SELECT * FROM joblist', function (error, results) {
+              //Gets list of all cvs in a year
+              con.query('SELECT * FROM candidatetest WHERE DATE(submitdate) >= ?',[formatted2], function (error, results) {
                 if (error) {
                   console.log("error occurred", error)
                 }
-                available = results.length
+                cvyear = results.length
 
-                con.query('UPDATE credentials SET lastlogin = ? WHERE username = ?',[formatted3,user1], function (error, results) {
+                //Gets list of all jobs
+                con.query('SELECT * FROM joblist', function (error, results) {
                   if (error) {
-                  console.log("error occurred", error)
+                    console.log("error occurred", error)
                   }
-                  if(type == 'rct'){
-                    //RENDERS THE RECRUTIER PAGE
-                    res.redirect('/dashboard') 
-                  }
-                  else if(type == 'mng'){
-                    //RENDERS THE MANAGER PAGE
-                    res.render('managerDashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
-                  }
-                  else{
-                    res.send({
-                    "code":401,
-                    "success":"This account is not valid"
-                    });
-                  }
+                  available = results.length
+
+                  con.query('UPDATE credentials SET lastlogin = ? WHERE username = ?',[formatted3,user1], function (error, results) {
+                    if (error) {
+                    console.log("error occurred", error)
+                    }
+                    if(type == 'rct'){
+                      //RENDERS THE RECRUTIER PAGE
+                      res.redirect('/dashboard') 
+                    }
+                    else if(type == 'mng'){
+                      //RENDERS THE MANAGER PAGE
+                      res.render('managerDashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
+                    }
+                    else{
+                      res.send({
+                      "code":401,
+                      "success":"This account is not valid"
+                      });
+                    }
+                  })
                 })
               })
             })
           })
-        })
-      }
-      else{
-        req.session.reset();
-        res.send({
-          "code":204,
-          "success":"Username and password does not match"
-            });
-      }
+        }
+        else{
+          req.session.reset();
+          res.send({
+            "code":204,
+            "success":"Username and password does not match"
+              });
+        }
+      })
     }
     else{
       req.session.reset();
@@ -404,29 +414,32 @@ app.post('/addacc', function (req, res) {
   var recruitername = req.body.recruitername
   var password = req.body.password
 
-con.query('INSERT INTO credentials (username, password, recruitername, usertype) VALUES (?,?,?,"rct")',[username,password,recruitername], function (error, results) {
-  if (error) {
-    console.log("error ocurred",error);
-    res.send({
-      "code":400,
-      "failed":"error ocurred"
+  bcrypt.hash(password, 10, function (err, hash) {
+  
+    con.query('INSERT INTO credentials (username, password, recruitername, usertype) VALUES (?,?,?,"rct")',[username,hash,recruitername], function (error, results) {
+      if (error) {
+        console.log("error ocurred",error);
+        res.send({
+          "code":400,
+          "failed":"error ocurred"
+      })
+      }else{
+        if (results.affectedRows > 0){
+          console.log('Inserted row')
+          res.send({
+              "code":200,
+              "success":"Saved new row"
+                });
+        }else {
+          console.log('Failed to insert row')
+          res.send({
+              "code":204,
+              "failed":"Couldn't save row"
+                });
+        }
+      }
+    })
   })
-  }else{
-    if (results.affectedRows > 0){
-      console.log('Inserted row')
-      res.send({
-          "code":200,
-          "success":"Saved new row"
-            });
-    }else {
-      console.log('Failed to insert row')
-      res.send({
-          "code":204,
-          "failed":"Couldn't save row"
-            });
-    }
-  }
-})
 })
 
 app.listen(3000, function () {

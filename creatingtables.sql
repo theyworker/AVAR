@@ -35,8 +35,8 @@ CREATE TABLE `basictest`.`credentials` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `usertype` varchar(50) NOT NULL,
   PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('user','pass','Dave','rct');
-INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('manager','pass','Mave','mng');
+INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('user','$2b$10$roMjms2jkHkTb0O0OCiylu7mDabfc8Nez/F0KfUolf2ruoDc.Pfr2','Dave','rct');
+INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('manager','$2b$10$roMjms2jkHkTb0O0OCiylu7mDabfc8Nez/F0KfUolf2ruoDc.Pfr2','Mave','mng');
 
 ALTER TABLE `basictest`.`credentials` ADD `lastlogin` DATETIME NULL AFTER `usertype`;
 ALTER TABLE `basictest`.`credentials` ADD `timeon` INT(50) NULL DEFAULT '0' AFTER `lastlogin`; 

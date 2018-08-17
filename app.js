@@ -418,7 +418,7 @@ app.post('/advsearch', function (req, res) {
       "failed":"error ocurred"
       })
     }else{
-      res.send(results)
+      res.render('searchResult', {results: results})
     }
   })
 })

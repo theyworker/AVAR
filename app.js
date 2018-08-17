@@ -273,6 +273,9 @@ app.post('/login', function (req, res) {
         dateyear.offsetInDays(-365)
         var formatted2 = dateyear.format('Y-m-d')
 
+        var currenttime = dateTime.create()
+        var formatted3 = currenttime.format('Y-m-d H:M:S')
+
         //Sets cookie with user
         req.session.user = user1;
 
@@ -304,20 +307,25 @@ app.post('/login', function (req, res) {
                 }
                 available = results.length
 
-                if(type == 'rct'){
-                  //RENDERS THE RECRUTIER PAGE
-                  res.redirect('/dashboard') 
-                }
-                else if(type == 'mng'){
-                  //RENDERS THE MANAGER PAGE
-                  res.render('managerDashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
-                }
-                else{
-                  res.send({
-                  "code":401,
-                  "success":"This account is not valid"
-                  });
-                }
+                con.query('UPDATE credentials SET lastlogin = ? WHERE username = ?',[formatted3,user1], function (error, results) {
+                  if (error) {
+                  console.log("error occurred", error)
+                  }
+                  if(type == 'rct'){
+                    //RENDERS THE RECRUTIER PAGE
+                    res.redirect('/dashboard') 
+                  }
+                  else if(type == 'mng'){
+                    //RENDERS THE MANAGER PAGE
+                    res.render('managerDashboard', {allcv: cv, monthcv: cvmonth, yearcv: cvyear, joblist: available})
+                  }
+                  else{
+                    res.send({
+                    "code":401,
+                    "success":"This account is not valid"
+                    });
+                  }
+                })
               })
             })
           })

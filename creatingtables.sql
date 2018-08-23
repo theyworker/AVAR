@@ -17,13 +17,16 @@ CREATE TABLE `basictest`.`candidatetest` (
   PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-ALTER TABLE `candidatetest` ADD `linkedinurl` VARCHAR(200) NULL AFTER `submitdate`, ADD `salaryrange` VARCHAR(50) NULL AFTER `linkedinurl`; 
+ALTER TABLE `candidatetest` ADD `linkedinurl` VARCHAR(200) NULL AFTER `submitdate`, ADD `salaryrange` VARCHAR(50) NULL AFTER `linkedinurl`;
+
+-- hidden column was added to the create table query
 
 CREATE TABLE `basictest`.`joblist` ( `id` int(10) NOT NULL AUTO_INCREMENT,
   `job` varchar(50) NOT NULL,
   `industry` varchar(50) DEFAULT NULL,
   `level` varchar(50) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
+  `hidden` bool DEFAULT false,
   PRIMARY KEY (id)) ENGINE = InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 INSERT INTO `basictest`.`joblist` (`job`) VALUES ('HR Services Executive'),('Assistant General Manger - Sales'),('CEO-Retail'),('Financial Controller'),('Assistant Manager - HR & Admin'),('Head of Business Process Re-Engineering');
@@ -39,4 +42,4 @@ INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`u
 INSERT INTO  `basictest`.`credentials`(`username`, `password`,`recruitername`,`usertype`) VALUES ('manager','$2b$10$roMjms2jkHkTb0O0OCiylu7mDabfc8Nez/F0KfUolf2ruoDc.Pfr2','Mave','mng');
 
 ALTER TABLE `basictest`.`credentials` ADD `lastlogin` DATETIME NULL AFTER `usertype`;
-ALTER TABLE `basictest`.`credentials` ADD `timeon` INT(50) NULL DEFAULT '0' AFTER `lastlogin`; 
+ALTER TABLE `basictest`.`credentials` ADD `timeon` INT(50) NULL DEFAULT '0' AFTER `lastlogin`;

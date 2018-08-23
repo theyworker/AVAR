@@ -112,8 +112,8 @@
                         <input type="text" class="form-control" style="color: #46B8DA; " id="mySearch" onkeyup="myFunction()" placeholder="Search Available positions.." title="Type your position" >
 
                         <ul id="myMenu" style="background-color:  lightgrey;">
-                            <% for (var i=1; i <= Object.keys(job).length; i++) { %>
-                            <li><a href="form/<%= i %>"><%= job[i] %></a></li>
+                            <% for (var i=0; i < job.length; i++) { %>
+                            <li><a href="form/<%= job[i].id %>"><%= job[i].job %></a></li>
                             <% } %>
                         </ul>
                     </div>

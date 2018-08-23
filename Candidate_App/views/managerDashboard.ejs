@@ -121,8 +121,8 @@
                   <form style="padding-left: 40px;" action="/advsearch" method="POST">
                     <li class="dropdown-header" style="padding-left: 80px;font-size: 15px;font-weight: bold;">Find Who Applied</li>
 
-                    <li>Experience <select class="form-control formstyle" style="width: 250px;">
-                        <option>--Select Experience--</option>
+                    <li>Experience <select class="form-control formstyle" style="width: 250px;" name="exp" id="exp">
+                        <option value="%">--Select Experience--</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -133,8 +133,8 @@
                         <option>8</option>
                       </select>
                     </li>
-                    <li>Education<select class="form-control formstyle" style="width: 250px;">
-                        <option>--Select Education--</option>
+                    <li>Education<select class="form-control formstyle" style="width: 250px;" name="edu" id="edu">
+                        <option value="%">--Select Education--</option>
                         <option>Certificate</option>
                         <option>Diploma</option>
                         <option>Higher Diploma</option>
@@ -143,12 +143,12 @@
                         <option>phD</option>
                       </select></li>
                     <li>CV Uploaded Date<br>
-                      <input type="date" style="width: 250px; font-size: 17px;">
+                      <input type="date" style="width: 250px; font-size: 17px;" name="date" id="date">
                     </li>
                     <li>Industry<select class="form-control formstyle" id="selind" name="selind" style="
     width: 250px;
 ">
-                        <option>--Select Industry--</option>
+                        <option value="%">--Select Industry--</option>
                         <option>Academic</option>
                         <option>Academic & Salon</option>
                         <option>Advertising</option>
@@ -254,6 +254,7 @@
                             <th>ID</th>
                             <th>Recruiter Name</th>
                             <th>Username</th>
+                            <th>Last Login</th>
                             <th>Status</th>
                             </thead>
                             <tbody>
@@ -271,6 +272,7 @@
                               <td><%= results[i].id %></td>
                               <td><%= results[i].recruitername %></td>
                               <td><%= results[i].username %></td>
+                              <td><%= results[i].lastlogin %></td>
                               <td><select name="" id="">
                                   <option value="">Active</option>
                                   <option value="">Deactive</option>
@@ -331,65 +333,35 @@
         <div class="row">
           <br>
           <div class="col-lg-3 col-xs-6">
-            <div class="rad-info-box rad-txt-success">
-              <i class="fa fa-windows"></i>
-              <span class="heading">CVs</span>
-              <span class="value"><span>4949</span></span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="rad-info-box rad-txt-primary">
-              <i class="fa fa-facebook"></i>
-              <span class="heading">Job Posts</span>
-              <span class="value"><span>23K</span></span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="rad-info-box rad-txt-danger">
-              <i class="fa fa-google-plus"></i>
-              <span class="heading">This Month Application</span>
-              <span class="value"><span>49M</span></span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="rad-info-box">
-              <i class="fa fa-apple"></i>
-              <span class="heading">etc...</span>
-              <span class="value"><span>10.9K</span></span>
-            </div>
+          <div class="rad-info-box rad-txt-success">
+            <i class="fa fa-windows"></i>
+            <span class="heading">CVs (Year)</span>
+            <span class="value"><span><%= yearcv %></span></span>
           </div>
         </div>
-        <br><br>
-        <div class="row">
-          <div class="col-lg-3 col-xs-6">
-            <div class="rad-info-box rad-txt-success">
-              <i class="fa fa-windows"></i>
-              <span class="heading">CVs</span>
-              <span class="value"><span>4949</span></span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="rad-info-box rad-txt-primary">
-              <i class="fa fa-facebook"></i>
-              <span class="heading">Job Posts</span>
-              <span class="value"><span>23K</span></span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="rad-info-box rad-txt-danger">
-              <i class="fa fa-windows"></i>
-              <span class="heading">CVs</span>
-              <span class="value"><span>4949</span></span>
-            </div>
-          </div>
-          <div class="col-lg-3 col-xs-6">
-            <div class="rad-info-box">
-              <i class="fa fa-facebook"></i>
-              <span class="heading">Job Posts</span>
-              <span class="value"><span>23K</span></span>
-            </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="rad-info-box rad-txt-primary">
+            <i class="fa fa-facebook"></i>
+            <span class="heading">Active Job Posts</span>
+            <span class="value"><span><%= joblist %></span></span>
           </div>
         </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="rad-info-box rad-txt-danger">
+            <i class="fa fa-google-plus"></i>
+            <span class="heading">This Month Application</span>
+            <span class="value"><span><%= monthcv %></span></span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <div class="rad-info-box">
+            <i class="fa fa-apple"></i>
+            <span class="heading">Total CVs</span>
+            <span class="value"><span><%= allcv %></span></span>
+          </div>
+        </div>
+    </div>
+        
       </div>
 
 

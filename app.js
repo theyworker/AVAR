@@ -52,8 +52,8 @@ con.connect((err) => {
 app.use(session({
   cookieName: 'session',
   secret: guid(),
-  duration: 60 * 60 * 1000,
-  activeDuration: 10 * 60 * 1000,
+  duration: 20 * 1000,
+  activeDuration: 5 * 1000,
   httpOnly: true,
   ephemeral: true
 }));
@@ -68,12 +68,24 @@ app.get('/backup', function (req, res) {
 // Renders home page template with joblist from DB
 app.get('/', function (req, res) {
   retrievejoblist()
-  res.render('index', {job: dbjob})
+  con.query('SELECT * FROM joblist WHERE hidden = false', function (error, results) {
+    if (error) {
+      console.log("error occurred", error)
+    }
+    
+    res.render('index', {job: results})
+  })
 })
 
 app.get('/index.html', function (req, res) {
   retrievejoblist()
-  res.render('index', {job: dbjob})
+  con.query('SELECT * FROM joblist WHERE hidden = false', function (error, results) {
+    if (error) {
+      console.log("error occurred", error)
+    }
+    
+    res.render('index', {job: results})
+  })
 })
 
 app.get('/form1.html', function (req, res) {
@@ -406,7 +418,7 @@ app.post('/advsearch', function (req, res) {
       "failed":"error ocurred"
       })
     }else{
-      res.send(results)
+      res.render('searchResult', {results: results})
     }
   })
 })

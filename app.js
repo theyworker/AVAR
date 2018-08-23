@@ -52,8 +52,8 @@ con.connect((err) => {
 app.use(session({
   cookieName: 'session',
   secret: guid(),
-  duration: 60 * 60 * 1000,
-  activeDuration: 10 * 60 * 1000,
+  duration: 20 * 1000,
+  activeDuration: 5 * 1000,
   httpOnly: true,
   ephemeral: true
 }));

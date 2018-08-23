@@ -91,22 +91,22 @@
                   </div>
                   <div class="form-group">
                     <label for="fname">Full Name:</label>
-                    <input type="text" class="form-control" name="fname" id="fname">
+                    <input type="text" class="form-control" name="fname" id="fname" required>
 
                   </div>
                   <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" name="email" id="email">
+                    <input type="email" class="form-control" name="email" id="email" required>
                     <div id="msg2"></div>
                   </div>
                   <div class="form-group">
                     <label for="tel">Telephone Number:</label>
-                    <input type="tel" class="form-control" name="tel" id="tel">
+                    <input type="tel" class="form-control" name="tel" id="tel" required>
                     <div id="msg3"></div>
                   </div>
                   <div class="form-group">
                     <label for="address">Address:</label>
-                    <textarea type="text" class="form-control" name="address" id="address"></textarea>
+                    <textarea type="text" class="form-control" name="address" id="address" required></textarea>
                   </div>
                 </div>
               </div>
@@ -116,11 +116,11 @@
                 </div>
                 <div class="form-group">
                   <label for="curemp">Current Designation:</label>
-                  <input type="text" class="form-control" name="curemp" id="curemp">
+                  <input type="text" class="form-control" name="curemp" id="curemp" required>
                 </div>
                 <div class="form-group">
                   <label for="curind">Current Industry:</label>
-                  <input type="text" class="form-control" name="curind" id="curind">
+                  <input type="text" class="form-control" name="curind" id="curind" required>
                 </div>
                 <div class="col-md-6" style="padding-left: 0;">
                   <div >
@@ -128,7 +128,7 @@
                   </div>
                   <div class="form-group">
                     <label for="quali">Highest Qualification :</label>
-                    <select class="form-control formstyle" style="width: 250px;"  name="quali" id="quali">
+                    <select class="form-control formstyle" style="width: 250px;"  name="quali" id="quali" required>
                       <option>--Select Education--</option>
                       <option>Certificate</option>
                       <option>Diploma</option>
@@ -146,7 +146,7 @@
                   </div>
                   <div >
                     <label for="quali">Years of experience :</label>
-                    <input type="number" class="form-control" name="demo" id="demo">
+                    <input type="number" class="form-control" name="demo" id="demo" required>
                   </div>
                 </div>
                 <br>
@@ -155,7 +155,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="curind">Salary Scale:</label>
-                  <select class="form-control formstyle"  name="range" id="range">
+                  <select class="form-control formstyle"  name="range" id="range" required>
                     <option>--Select Salary Range--</option>
                     <option>30,000 - 50,000</option>
                     <option>50,000 - 80,000</option>
@@ -179,13 +179,13 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="curind">LinkedIn profile(URL)</label>
-                  <input type="text" class="form-control" name="Lurl" id="Lurl">
+                  <input type="text" class="form-control" name="Lurl" id="Lurl" required>
                 </div>
               </div>
               <div class="col-md-6">
                 <div>
                   <br/>
-                  <h2>Upload your updated CV </h2><input type="file" name="cvfile">
+                  <h2>Upload your updated CV </h2><input type="file" name="cvfile" required>
 
                 </div>
                 <br/>
@@ -205,7 +205,7 @@
   </section>
 
 
-</div>
+
 <footer id="fh5co-footer" role="contentinfo" style="padding:35px 0; padding-bottom: 20px;">
 
   <div class="container">
@@ -243,7 +243,7 @@
   </div>
 </footer>
 
-
+</div>
 
 <!-- jQuery -->
 <script src="js/jquery.min.js"></script>

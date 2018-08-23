@@ -199,6 +199,24 @@ app.get('/form/:id', function (req, res) {
   res.render('form', {job: dbjob[req.params.id]})
 })
 
+app.post('/update/:id', function (req, res) {
+
+  var candidateid = req.params.id
+  var canremarks = "f"+candidateid
+
+  var realremark = req.body[canremarks]
+
+  //console.log(candidateid + " and " + canremarks  + " and " + realremark)
+
+  con.query('UPDATE candidatetest SET remarks = ? WHERE id = ?', [realremark, candidateid], function (error, results, fields)  {
+    if (error) {
+      console.log("error occured", error)
+    }else{
+      res.redirect('/dashboard');
+    }
+  })
+})
+
 // Submit job application
 app.post('/submit', function (req, res) {
   var fname = req.body.fname
@@ -389,7 +407,7 @@ app.post('/login', function (req, res) {
 app.post('/search', function (req, res) {
   var stuff = req.body.searchstuff
 
-  con.query('SELECT fname, email, tel, address, submitdate, appliedjob, cvdir, remarks FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
+  con.query('SELECT id, fname, email, tel, address, submitdate, appliedjob, cvdir, remarks FROM candidatetest WHERE CONCAT(fname, email, address, quali, appliedjob) LIKE "%"?"%"',[stuff], function (error, results, fields) {
     if (error) {
       console.log("error ocurred",error);
       res.send({

@@ -108,45 +108,47 @@
 <section style="background-color: white;padding-top:120px;border-radius: 8px; width: 95%;margin-left: 2.5%">
 
 
-                <div class="card-body" >
-                    <div class="table-responsive" >
-                        <table class="table table-hover tstyle" style="color: black;" rows="8">
-                            <thead style="color:black; border-top: #DDDDDD;">
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Telephone</th>
-                            <th>Address</th>
-                            <th>Applied Job</th>
-                            <th>Submitted Date</th>
-                            <th>Submitted CV</th>
-                            <th>Remark</th>
-                            </thead>
-                            <tbody>
-                            <!--<tr>
-                                <td>John Doe</td>
-                                <td>JohnDoe@gmail.com</td>
-                                <td>011 1234567</td>
-                                <td>12 sunset road ..</td>
-                                <td>HR Services Executive</td>
-                                <td>10/08/2018</td>
-                                <td>CV</td>
-                                <td><input type="text"> <input class="btn btn-success btnremark" type="submit" value="save"></td> -->
-                            <% for (var i=0; i < results.length; i++) { %>
-                            <tr>
-                                <td> <%= results[i].fname %></td>
-                                <td> <%= results[i].email %></td>
-                                <td> <%= results[i].tel %></td>
-                                <td> <%= results[i].address %></td>
-                                <td> <%= results[i].appliedjob %></td>
-                                <td> <%= results[i].submitdate %></td>
-                                <td><a href=""> <%= results[i].cvdir %></a></td>
-                                <td><input type="text" value="<%= results[i].remarks %>"> <input class="btn btn-success btnremark" type="submit" value="save"></td>
-                            </tr>
-                            <% } %>
-                            </tbody>
-                        </table>
-                    </div>
+            <div class="card-body" >
+                <div class="table-responsive" >
+                    <table class="table table-hover tstyle" style="color: black;" rows="8">
+                        <thead style="color:black; border-top: #DDDDDD;">
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Telephone</th>
+                        <th>Address</th>
+                        <th>Applied Job</th>
+                        <th>Submitted Date</th>
+                        <th>Submitted CV</th>
+                        <th>Remark</th>
+                        </thead>
+                        <tbody>
+                        <!--<tr>
+                            <td>John Doe</td>
+                            <td>JohnDoe@gmail.com</td>
+                            <td>011 1234567</td>
+                            <td>12 sunset road ..</td>
+                            <td>HR Services Executive</td>
+                            <td>10/08/2018</td>
+                            <td>CV</td>
+                            <td><input type="text"> <input class="btn btn-success btnremark" type="submit" value="save"></td> -->
+                        <% for (var i=0; i < results.length; i++) { %>
+                        <tr>
+                            <td> <%= results[i].fname %></td>
+                            <td> <%= results[i].email %></td>
+                            <td> <%= results[i].tel %></td>
+                            <td> <%= results[i].address %></td>
+                            <td> <%= results[i].appliedjob %></td>
+                            <td> <%= results[i].submitdate %></td>
+                            <td><a href=""> <%= results[i].cvdir %></a></td>
+                            <input id="canid" name="canid" type="hidden" value="<%= results[i].id %>">
+                            <td><form action="/update/<%= results[i].id %>" method="POST" id="form<%= results[i].id %>"><input type="text" value="<%= results[i].remarks %>" name="f<%= results[i].id %>" id="f<%= results[i].id %>"> </form>
+                            <input class="btn btn-success btnremark" type="submit" value="save" form="form<%= results[i].id %>"></td>
+                        </tr>
+                        <% } %>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
 
 </section>
 
